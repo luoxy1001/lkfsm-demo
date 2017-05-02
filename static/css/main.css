@@ -174,6 +174,24 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .cspo{cursor:pointer;}
 .csde{cursor:default;}
 
+/*icon*/
+[class^="ic-"], .ic-mark{display:inline-block; vertical-align:middle; background-size:contain; background-repeat: no-repeat; background-position: center center;}
+.ic-eye{background-image:url(../images/ic-eye.png);}
+.ic-dl{background-image:url(../images/ic-dl.png);}
+.ic-ywgl{background-image:url(../images/ic-ywgl.png);}
+.ic-zdy{background-image:url(../images/ic-zdy.png);}
+.ic-add{background-image:url(../images/ic-add.png);}
+.ic-less{background-image:url(../images/ic-less.png);}
+.ic-note{background-image:url(../images/ic-note.png);}
+.ic-qh{background-image:url(../images/ic-qh.png);}
+.ic-ry{background-image:url(../images/ic-ry.png);}
+.ic-sxt{background-image:url(../images/ic-sxt.png);}
+.ic-mark{width:24px; height:27px; position: absolute; margin-left:-12px; margin-top:-27px; cursor:pointer;}
+.ic-mark-ck{background-image:url(../images/ic-mark-ck.png);}
+.ic-mark-dl{background-image:url(../images/ic-mark-dl.png);}
+.ic-mark-yw{background-image:url(../images/ic-mark-yw.png);}
+.ic-mark-zdy{background-image:url(../images/ic-mark-zdy.png);}
+
 /*main-css-common*/
 .wrap{width:1336px; margin-left: auto; margin-right: auto;}
 .haeder{background:#125396; padding:8px 45px;}
@@ -191,7 +209,7 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
     width: 166px; height: 35px; line-height: 28px; position: absolute; top:0; left:50%;
     margin-left:-83px; margin-top:-1px; text-align: center;
     background: url("../images/bg-title.png") center center no-repeat;
-    z-index:2;
+    z-index:10;
 }
 .main-panel-title2{
     width:165px; height:20px; border: 1px solid #0179b6;
@@ -201,16 +219,26 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 }
 .main-panel-title2 > span{display: block; position: absolute; width:149px; height:22px; line-height: 22px; left:8px; top:-1px; text-align: center; background-color:#00336c;}
 
-.monitor-left{width:770px; float: left;}
-.monitor-right{width:500px; float: right;}
-.monitor-map{height:320px;}
-.monitor-video{padding: 35px 12px 0;}
-.monitor-charts{height:165px; width:378px; float:left;}
-.monitor-charts-1{width:388px; border-right:none; border-radius: 10px 0 0 0;}
-.monitor-charts-2{border-left:none; border-radius: 0 0 10px 0; width:380px;}
+.index-left{width:770px; float: left;}
+.index-right{width:500px; float: right;}
+.index-map{height:320px;}
+.index-video{padding: 35px 12px 0;}
+.index-charts{height:165px; width:378px; float:left;}
+.index-charts-1{width:388px; border-right:none; border-radius: 10px 0 0 0;}
+.index-charts-2{border-left:none; border-radius: 0 0 10px 0; width:380px;}
 
-.monitor-map-img, .monitor-charts-inner{position: relative; width:100%; height: 100%; overflow: hidden;}
-/*.monitor-map-img > canvas{width:100%; height:100%;}*/
-.monitor-map-img > canvas{transform-origin:left top; position: absolute;}
+.index-map-img, .index-charts-inner{position: relative; width:100%; height: 100%; overflow: hidden;}
+/*.index-map-img > canvas{width:100%; height:100%;}*/
+.index-map-img > canvas{transform-origin:left top; position: absolute;}
+.index-map-marks{position: absolute;}
 
+.index-map-tools{position:absolute; top:20px; left:20px; z-index: 10; width:38px;}
+.index-map-tools-ic, .index-map-tools-ica{
+    width:36px; height:30px; display: inline-block; vertical-align:middle; background-size:auto;
+    background-repeat: no-repeat; background-position: center; background-color: #003366;
+    margin-bottom:8px;
+}
+.index-map-tools-ic:hover, .index-map-tools-icsel{background-color: #008ad0;}
+.index-map-tools-ica{border:1px solid #004d86;}
+.index-map-tools .ic-zdy{margin-bottom: 18px;}
 
