@@ -29,10 +29,10 @@
                     <div class="index-map-marks"></div>
                 </div>
                 <div class="index-map-tools">
-                    <a class="index-map-tools-ic index-map-tools-icsel ic-eye" href="javascript:;"></a>
-                    <a class="index-map-tools-ic ic-dl" href="javascript:;"></a>
-                    <a class="index-map-tools-ic ic-ywgl" href="javascript:;"></a>
-                    <a class="index-map-tools-ic ic-zdy" href="javascript:;"></a>
+                    <a class="index-map-tools-ic ic-eye" href="javascript:;" data-type="view"></a>
+                    <a class="index-map-tools-ic ic-dl" href="javascript:;" data-type="diversion"></a>
+                    <a class="index-map-tools-ic ic-ywgl" href="javascript:;" data-type="yunwei"></a>
+                    <a class="index-map-tools-ic ic-zdy" href="javascript:;" data-type="customize"></a>
                     <a class="index-map-tools-ica ic-add" href="javascript:;"></a>
                     <a class="index-map-tools-ica ic-less" href="javascript:;"></a>
                 </div>
@@ -70,8 +70,8 @@
 
 <!--dialog-->
 <div class="mask" id="dl-mask"></div>
-<div class="dialog dl-event" id="dl-dl">
-    <h3 class="dl-title"><i class="dl-ic ic-dl-dl"></i>导流事件<strong class="ml-10 fw-b fc-white">TRAFFIC GROOMING</strong></h3>
+<div class="dialog dl-event" id="dl-events">
+    <h3 class="dl-title"></h3>
     <a class="dl-close" href="javascript:;"></a>
     <div class="dl-content">
         <table class="tb-form">
@@ -105,16 +105,17 @@
                 <tr>
                     <th>备注</th>
                     <td colspan="3">
-                        <textarea class="form-area"></textarea>
+                        <textarea class="form-area" id="dl-area"></textarea>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="dl-footer">
-        <a href="javascript:;" class="btn btn-dl"></a>
+        <a href="javascript:;" class="btn btn-dl" id="dl-save"></a>
     </div>
 </div>
+
 <script src="static/lib/jquery-3.2.1.min.js"></script>
 <script src="static/lib/heatmap.js"></script>
 <script src="static/lib/echarts.min.js"></script>
@@ -130,9 +131,10 @@ var map = {
         src: 'static/images/map.png',
         bgcolor: '#00336c',
         events: {
-            'view': {icon: 'ic-mark-ck'},
-            'diversion': {icon: 'ic-mark-dl'},
-            'customize': {icon: 'ic-mark-zdy'}
+            'view': {icon: 'ic-mark-ck', ttype: '事件'},
+            'diversion': {icon: 'ic-mark-dl', ttype: '事件'},
+            'yunwei': {icon: 'ic-mark-yw', ttype: '事件'},
+            'customize': {icon: 'ic-mark-zdy', ttype: '事件'}
         }
     },
     init: function(){
@@ -198,18 +200,41 @@ var map = {
             if(lv < -self.default.lvar.length + 1) return;
             self.setMapLevel(lv);
         });
-        self.tools.filter('.ic-dl').on('click', function(){
-            main.dialog($('#dl-dl'));
+        self.tools.filter('.index-map-tools-ic').on('click', function(){
+            //main.dialog($('#dl-dl'));
+            var $t = $(this);
+            $t.toggleClass('index-map-tools-icsel');
+            if($('.index-map-tools-icsel').length > 1){
+                $t.siblings('.index-map-tools-icsel').removeClass('index-map-tools-icsel');
+            }
+            var $bt = $('.index-map-tools-icsel');
+            if($bt.length === 0) return
         });
     },
     addMark: function(type, x, y, data, cbk){
         var self = this, opts = self.default, mks = opts.events, mk = mks[type], $nd = self.marks;
         var $mk = $('<i class="ic-mark ' + mk.icon + '"></i>');
+        if(data.info){
+            var ttype = mk.ttype;
+            var ifh = '<div class="index-map-info"><div class="index-map-info-t clearfix"><span class="pull-left">'
+                    + ttype + ':' + data.info.name + '</span><span class="pull-right">' + data.info.status + '</span></div>'
+                    + '<div class="index-map-info-ct">' + data.info.content + '</div><div class="index-map-info-bm">'
+                    + '<a href="javascript:;" class="btn-a">编辑</a><a href="javascript:;" class="btn-a ml-15">确定</a></div></div>';
+            var $if = $(ifh).appendTo($mk);
+            $mk.hover(function(){
+                $mk.children('.index-map-info').show();
+            }, function(){
+                $mk.children('.index-map-info').hide();
+            });
+        }
+
         $mk.data('mkx', x);
         $mk.data('mky', y);
         $mk.data('mkdt', data);
-        $.type(cbk) === 'function' && $mk.on('click', function(){
-            cbk.call(this);
+
+        $mk.on('click', function(e){
+            $.type(cbk) === 'function' && cbk.call(this);
+            return false;
         });
         $mk.css({left: x + 'px', top: y + 'px'}).appendTo($nd);
     },
@@ -246,6 +271,7 @@ var map = {
             },
             mousemove: function(e){
                 e.preventDefault();
+                clickFlag = false;
                 if(!moveFlag) return;
                 var $t = $(this), mx = $t.data('mx'), my = $t.data('my'), pos = $t.data('pos');
                 mx = e.clientX - mx;
@@ -262,6 +288,14 @@ var map = {
             },
             mouseout: function(){
                 moveFlag = false;
+            },
+            click: function(e){
+                if(!clickFlag) return;
+                var $bt = $('.index-map-tools-icsel');
+                if($bt.length === 0) return;
+                var ty = $bt.attr('data-type');
+                map.evdata = {ty: ty, x: e.offsetX, y: e.offsetY};
+                main.evdialog(ty);
             }
         });
     }
@@ -526,9 +560,41 @@ var main = {
     dialog: function($t){
         $('#dl-mask').show();
         $t.show();
+        $t.children('.dl-close').off().on('click', function(){
+            main.dialogClose($t);
+        });
+    },
+    dialogClose: function($t){
+        $('#dl-mask').hide();
+        $t.hide();
+    },
+    evdialog: function(ty){
+        var $d = $('#dl-events'), obj = {
+            'view': '<i class="dl-ic ic-dl-dl"></i>查看事件<strong class="ml-10 fw-b fc-white">VIEW</strong>',
+            'diversion': '<i class="dl-ic ic-dl-dl"></i>导流事件<strong class="ml-10 fw-b fc-white">TRAFFIC GROOMING</strong>',
+            'yunwei': '<i class="dl-ic ic-dl-dl"></i>运维事件<strong class="ml-10 fw-b fc-white">MAINTENANCE</strong>'
+        };
+        $d.children('.dl-title').html(obj[ty]);
+        $('#dl-area').val('');
+        main.dialog($d);
+    },
+    randm: function(ty){
+        var len = 3, obj = {
+            'view': [{name: '查看', status: '进行中'}, {name: '查看', status: '进行中'}, {name: '查看', status: '已结束'}],
+            'diversion': [{name: '张三', status: '进行中'}, {name: '李四', status: '已结束'}, {name: '老王', status: '处理中'}],
+            'yunwei': [{name: '安保A', status: '进行中'}, {name: '安保B', status: '已处理'}, {name: '安保C', status: '进行中'}]
+        };
+        return obj[ty][Math.floor(Math.random()*len)];
     },
     uiBind: function(){
         $('#sel-bm, #sel-sj').dropselect();
+        $('#dl-save').on('click', function(){
+            var $bt = $('.index-map-tools-icsel');
+            if($bt.length === 0) return;
+            var dt = $.extend(main.randm(map.evdata.ty), {content: $('#dl-area').val() || '事件为空'});
+            map.addMark(map.evdata.ty, map.evdata.x, map.evdata.y, {info: dt});
+            main.dialogClose($('#dl-events'));
+        });
     }
 };
 
