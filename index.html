@@ -67,18 +67,68 @@
         </div>
     </div>
 </section>
+
+<!--dialog-->
+<div class="mask" id="dl-mask"></div>
+<div class="dialog dl-event" id="dl-dl">
+    <h3 class="dl-title"><i class="dl-ic ic-dl-dl"></i>导流事件<strong class="ml-10 fw-b fc-white">TRAFFIC GROOMING</strong></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content">
+        <table class="tb-form">
+            <tbody>
+                <tr>
+                    <th width="12%">日期</th>
+                    <td width="35%">2017/03/05/21:00</td>
+                    <th width="12%">地点</th>
+                    <td width="34%">1F~B区 2~4 走廊</td>
+                </tr>
+                <tr>
+                    <th>部门</th>
+                    <td>
+                        <select id="sel-bm">
+                            <option value="1">运维部门</option>
+                            <option value="2">安保部门</option>
+                        </select>
+                    </td>
+                    <th>时间</th>
+                    <td>
+                        <select id="sel-sj">
+                            <option value="0">立即执行</option>
+                            <option value="12">12:00</option>
+                            <option value="14">14:00</option>
+                            <option value="16">16:00</option>
+                            <option value="28">18:00</option>
+                            <option value="20">20:00</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>备注</th>
+                    <td colspan="3">
+                        <textarea class="form-area"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dl-footer">
+        <a href="javascript:;" class="btn btn-dl"></a>
+    </div>
+</div>
 <script src="static/lib/jquery-3.2.1.min.js"></script>
 <script src="static/lib/heatmap.js"></script>
 <script src="static/lib/echarts.min.js"></script>
+<script src="static/js/common/jquery.dropselect.js"></script>
 <script>
 var map = {
     default: {
         width: 1265,
         height: 1284,
-        point: [0, 0],
+        point: [-5, -920],
         level: 0,
         lvar: [1, .9, .8, .7, .6, .5, .4, .3],
         src: 'static/images/map.png',
+        bgcolor: '#00336c',
         events: {
             'view': {icon: 'ic-mark-ck'},
             'diversion': {icon: 'ic-mark-dl'},
@@ -96,24 +146,27 @@ var map = {
         wt = opts.width;
         ht = opts.height;
         panel.attr('width', wt).attr('height', ht);
-        ctx.fillStyle = '#00336c';
+        ctx.fillStyle = opts.bgcolor;
         ctx.fillRect(0, 0, wt, ht);
         self.marks = panel.next('.index-map-marks');
         self.marks.css({width: wt + 'px', height: ht + 'px'});
+
         var img = new Image();
         img.src = opts.src;
         img.onload = function(){
             self.loadmap(img);
+            self.setMapLevel(self.default.level);
+            self.panelMove(opts.point[0], opts.point[1]);
         };
+
         self.dragg();
         self.wheel();
-        self.setMapLevel(self.default.level);
         self.tools = panel.parent().next('.index-map-tools').children('a');
         self.toolfun();
     },
     loadmap: function(img){
-        var self = this, ctx = self.ctx;
-        ctx.drawImage(img, 0, 0, 1265, 1284);
+        var self = this, ctx = self.ctx, opts = self.default;
+        ctx.drawImage(img, 0, 0, opts.width, opts.height);
     },
     setMapLevel: function(lv){
         var self = this, panel = self.panel, lvar = self.default.lvar;
@@ -145,6 +198,9 @@ var map = {
             if(lv < -self.default.lvar.length + 1) return;
             self.setMapLevel(lv);
         });
+        self.tools.filter('.ic-dl').on('click', function(){
+            main.dialog($('#dl-dl'));
+        });
     },
     addMark: function(type, x, y, data, cbk){
         var self = this, opts = self.default, mks = opts.events, mk = mks[type], $nd = self.marks;
@@ -161,28 +217,22 @@ var map = {
         this.marks.empty();
     },
     panelMove: function(mx, my){
-        var self = this, $p = self.panel.parent(),
-                maxLeft = self.panel.width() - $p.width() + 10,
-                maxTop = self.panel.height() - $p.height() + 10;
+        var self = this, $p = self.panel.parent(), mbl = self.default.lvar[-self.level],
+                maxLeft = self.marks.width() - $p.width() + 10,
+                maxTop = self.marks.height() - $p.height() + 10;
 
         if(mx > 60) mx = 60;
         if(my > 30) my = 30;
         if(mx < -maxLeft) mx = -maxLeft;
         if(my < -maxTop) my = -maxTop;
 
-        self.marks.css('left', mx + 'px');
-        self.marks.css('top', my + 'px');
-        self.panel.css('left', mx + 'px');
-        self.panel.css('top', my + 'px');
+        self.marks.css({'left': mx + 'px', 'top': my + 'px'});
+        self.panel.css({'left': mx * mbl + 'px', 'top': my * mbl + 'px'});
     },
     dragg: function(){
         var self = this,
             moveFlag = false, //区别moueseup与click的标志
-            clickFlag  = false,
-            $p = self.panel.parent();
-
-        var maxLeft = self.panel.width() - $p.width() + 10,
-            maxTop = self.panel.height() - $p.height() + 10;
+            clickFlag  = false;
 
         self.marks.on({
             mousedown: function(e){
@@ -204,15 +254,7 @@ var map = {
                 mx = pos.left + mx;
                 my = pos.top + my;
 
-                if(mx > 60) mx = 60;
-                if(my > 30) my = 30;
-                if(mx < -maxLeft) mx = -maxLeft;
-                if(my < -maxTop) my = -maxTop;
-
-                $t.css('left', mx + 'px');
-                $t.css('top', my + 'px');
-                self.panel.css('left', mx + 'px');
-                self.panel.css('top', my + 'px');
+                self.panelMove(mx, my);
             },
             mouseup: function(e){
                 e.preventDefault();
@@ -229,6 +271,7 @@ var main = {
     init: function(){
         map.init();
         main.chartsInit();
+        main.uiBind();
     },
     chartsInit: function(){
         // 初始化echarts实例
@@ -479,6 +522,13 @@ var main = {
                 }
             }]
         });
+    },
+    dialog: function($t){
+        $('#dl-mask').show();
+        $t.show();
+    },
+    uiBind: function(){
+        $('#sel-bm, #sel-sj').dropselect();
     }
 };
 
