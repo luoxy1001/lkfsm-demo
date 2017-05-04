@@ -36,8 +36,15 @@
                     <a class="index-map-tools-ica ic-add" href="javascript:;"></a>
                     <a class="index-map-tools-ica ic-less" href="javascript:;"></a>
                 </div>
-                <div class="index-map-bm"></div>
-                <div class="index-map-heat"></div>
+                <div class="index-map-bl">1F/5层</div>
+                <div class="index-map-bm">
+                    <a href="javascript:;" class="ic-sxt"></a><a href="javascript:;" class="ic-ry"></a>
+                </div>
+                <div class="index-map-lt" id="map-lt">
+                    <img src="static/images/map.png" style="display:none;"/>
+                    <img src="static/images/map-ht.png"/>
+                    <a href="javascript:;" class="index-map-qh ic-qh" id="map-qh"></a>
+                </div>
             </div>
             <div class="clearfix mt-10">
                 <div class="main-panel index-charts">
@@ -86,8 +93,12 @@
                     <th>部门</th>
                     <td>
                         <select id="sel-bm">
-                            <option value="1">运维部门</option>
-                            <option value="2">安保部门</option>
+                            <option value="1">运维部门人员1</option>
+                            <option value="1">运维部门人员2</option>
+                            <option value="1">运维部门人员3</option>
+                            <option value="2">安保部门人员1</option>
+                            <option value="2">安保部门人员2</option>
+                            <option value="2">安保部门人员3</option>
                         </select>
                     </td>
                     <th>时间</th>
@@ -120,190 +131,22 @@
 <script src="static/lib/heatmap.js"></script>
 <script src="static/lib/echarts.min.js"></script>
 <script src="static/js/common/jquery.dropselect.js"></script>
+<script src="static/js/common/jquery.smartmap.js"></script>
 <script>
-var map = {
-    default: {
-        width: 1265,
-        height: 1284,
-        point: [-5, -920],
-        level: 0,
-        lvar: [1, .9, .8, .7, .6, .5, .4, .3],
-        src: 'static/images/map.png',
-        bgcolor: '#00336c',
-        events: {
-            'view': {icon: 'ic-mark-ck', ttype: '事件'},
-            'diversion': {icon: 'ic-mark-dl', ttype: '事件'},
-            'yunwei': {icon: 'ic-mark-yw', ttype: '事件'},
-            'customize': {icon: 'ic-mark-zdy', ttype: '事件'}
-        }
-    },
-    init: function(){
-        var self = this, panel = $('#index-map-img'), wt = panel.width(), ht = panel.height(),
-                ctx = panel[0].getContext('2d'),
-                opts = self.default;
-        map.panel = panel;
-        map.ctx = ctx;
-        map.width = wt;
-        map.height = ht;
-        wt = opts.width;
-        ht = opts.height;
-        panel.attr('width', wt).attr('height', ht);
-        ctx.fillStyle = opts.bgcolor;
-        ctx.fillRect(0, 0, wt, ht);
-        self.marks = panel.next('.index-map-marks');
-        self.marks.css({width: wt + 'px', height: ht + 'px'});
-
-        var img = new Image();
-        img.src = opts.src;
-        img.onload = function(){
-            self.loadmap(img);
-            self.setMapLevel(self.default.level);
-            self.panelMove(opts.point[0], opts.point[1]);
-        };
-
-        self.dragg();
-        self.wheel();
-        self.tools = panel.parent().next('.index-map-tools').children('a');
-        self.toolfun();
-    },
-    loadmap: function(img){
-        var self = this, ctx = self.ctx, opts = self.default;
-        ctx.drawImage(img, 0, 0, opts.width, opts.height);
-    },
-    setMapLevel: function(lv){
-        var self = this, panel = self.panel, lvar = self.default.lvar;
-        self.level = lv;
-        lv = lvar[-lv];
-        self.marks.css('visibility', 'hidden');
-        self.marks.children().each(function(){
-            var $t = $(this);
-            $t.css({left: $t.data('mkx') * lv + 'px', top: $t.data('mky') * lv + 'px'});
-        });
-        panel.css({'transform': 'scale(' + lv + ', ' + lv + ')'});
-        self.marks.css('visibility', 'visible');
-    },
-    wheel: function(){
-        var self = this, panel = self.panel;
-        panel.parent().on('mousewheel', function(e){
-            e.preventDefault();
-        });
-    },
-    toolfun: function(){
-        var self = this;
-        self.tools.filter('.ic-add').on('click', function(){
-            var lv = self.level + 1;
-            if(lv > 0) return;
-            self.setMapLevel(lv);
-        });
-        self.tools.filter('.ic-less').on('click', function(){
-            var lv = self.level - 1;
-            if(lv < -self.default.lvar.length + 1) return;
-            self.setMapLevel(lv);
-        });
-        self.tools.filter('.index-map-tools-ic').on('click', function(){
-            //main.dialog($('#dl-dl'));
-            var $t = $(this);
-            $t.toggleClass('index-map-tools-icsel');
-            if($('.index-map-tools-icsel').length > 1){
-                $t.siblings('.index-map-tools-icsel').removeClass('index-map-tools-icsel');
-            }
-            var $bt = $('.index-map-tools-icsel');
-            if($bt.length === 0) return
-        });
-    },
-    addMark: function(type, x, y, data, cbk){
-        var self = this, opts = self.default, mks = opts.events, mk = mks[type], $nd = self.marks;
-        var $mk = $('<i class="ic-mark ' + mk.icon + '"></i>');
-        if(data.info){
-            var ttype = mk.ttype;
-            var ifh = '<div class="index-map-info"><div class="index-map-info-t clearfix"><span class="pull-left">'
-                    + ttype + ':' + data.info.name + '</span><span class="pull-right">' + data.info.status + '</span></div>'
-                    + '<div class="index-map-info-ct">' + data.info.content + '</div><div class="index-map-info-bm">'
-                    + '<a href="javascript:;" class="btn-a">编辑</a><a href="javascript:;" class="btn-a ml-15">确定</a></div></div>';
-            var $if = $(ifh).appendTo($mk);
-            $mk.hover(function(){
-                $mk.children('.index-map-info').show();
-            }, function(){
-                $mk.children('.index-map-info').hide();
-            });
-        }
-
-        $mk.data('mkx', x);
-        $mk.data('mky', y);
-        $mk.data('mkdt', data);
-
-        $mk.on('click', function(e){
-            $.type(cbk) === 'function' && cbk.call(this);
-            return false;
-        });
-        $mk.css({left: x + 'px', top: y + 'px'}).appendTo($nd);
-    },
-    clearMark: function(){
-        this.marks.empty();
-    },
-    panelMove: function(mx, my){
-        var self = this, $p = self.panel.parent(), mbl = self.default.lvar[-self.level],
-                maxLeft = self.marks.width() - $p.width() + 10,
-                maxTop = self.marks.height() - $p.height() + 10;
-
-        if(mx > 60) mx = 60;
-        if(my > 30) my = 30;
-        if(mx < -maxLeft) mx = -maxLeft;
-        if(my < -maxTop) my = -maxTop;
-
-        self.marks.css({'left': mx + 'px', 'top': my + 'px'});
-        self.panel.css({'left': mx * mbl + 'px', 'top': my * mbl + 'px'});
-    },
-    dragg: function(){
-        var self = this,
-            moveFlag = false, //区别moueseup与click的标志
-            clickFlag  = false;
-
-        self.marks.on({
-            mousedown: function(e){
-                e.preventDefault();
-                moveFlag = true;
-                clickFlag = true;
-                var $t = $(this), pos = $t.position();
-                $t.data('mx', e.clientX);
-                $t.data('my', e.clientY);
-                $t.data('pos', pos);
-            },
-            mousemove: function(e){
-                e.preventDefault();
-                clickFlag = false;
-                if(!moveFlag) return;
-                var $t = $(this), mx = $t.data('mx'), my = $t.data('my'), pos = $t.data('pos');
-                mx = e.clientX - mx;
-                my = e.clientY - my;
-
-                mx = pos.left + mx;
-                my = pos.top + my;
-
-                self.panelMove(mx, my);
-            },
-            mouseup: function(e){
-                e.preventDefault();
-                moveFlag = false;
-            },
-            mouseout: function(){
-                moveFlag = false;
-            },
-            click: function(e){
-                if(!clickFlag) return;
-                var $bt = $('.index-map-tools-icsel');
-                if($bt.length === 0) return;
-                var ty = $bt.attr('data-type');
-                map.evdata = {ty: ty, x: e.offsetX, y: e.offsetY};
-                main.evdialog(ty);
-            }
-        });
-    }
-};
 
 var main = {
     init: function(){
-        map.init();
+        //map.init();
+        $('#index-map-img').smartmap();
+        setTimeout(function(){
+            var $mp = $('#index-map-img').data('smartmap');
+            $.each(main.expdata.person, function(n, ite){
+                $mp.addMark('person', 'person', ite.x, ite.y, ite.data);
+            });
+            $.each(main.expdata.camera, function(n, ite){
+                $mp.addMark('camera', 'camera' + ite.status, ite.x, ite.y, {});
+            });
+        }, 10);
         main.chartsInit();
         main.uiBind();
     },
@@ -572,7 +415,8 @@ var main = {
         var $d = $('#dl-events'), obj = {
             'view': '<i class="dl-ic ic-dl-dl"></i>查看事件<strong class="ml-10 fw-b fc-white">VIEW</strong>',
             'diversion': '<i class="dl-ic ic-dl-dl"></i>导流事件<strong class="ml-10 fw-b fc-white">TRAFFIC GROOMING</strong>',
-            'yunwei': '<i class="dl-ic ic-dl-dl"></i>运维事件<strong class="ml-10 fw-b fc-white">MAINTENANCE</strong>'
+            'yunwei': '<i class="dl-ic ic-dl-dl"></i>运维事件<strong class="ml-10 fw-b fc-white">MAINTENANCE</strong>',
+            'customize': '<i class="dl-ic ic-dl-dl"></i>自定义事件<strong class="ml-10 fw-b fc-white">CUSTOMIZE</strong>'
         };
         $d.children('.dl-title').html(obj[ty]);
         $('#dl-area').val('');
@@ -582,18 +426,58 @@ var main = {
         var len = 3, obj = {
             'view': [{name: '查看', status: '进行中'}, {name: '查看', status: '进行中'}, {name: '查看', status: '已结束'}],
             'diversion': [{name: '张三', status: '进行中'}, {name: '李四', status: '已结束'}, {name: '老王', status: '处理中'}],
-            'yunwei': [{name: '安保A', status: '进行中'}, {name: '安保B', status: '已处理'}, {name: '安保C', status: '进行中'}]
+            'yunwei': [{name: '安保A', status: '进行中'}, {name: '安保B', status: '已处理'}, {name: '安保C', status: '进行中'}],
+            'customize': [{name: '查看', status: '进行中'}, {name: '查看', status: '进行中'}, {name: '查看', status: '已结束'}]
         };
         return obj[ty][Math.floor(Math.random()*len)];
+    },
+    expdata: {
+        person: [
+            {
+                x: 340, y: 1106, data: {
+                    info: {
+                        content: "正在巡视……",
+                        name: "安保A",
+                        status: "进行中"
+                    }
+                }
+            },
+            {
+                x: 290, y: 1100, data: {
+                    info: {
+                        content: "正在睡觉……",
+                        name: "安保B",
+                        status: "进行中"
+                    }
+                }
+            },
+            {
+                x: 420, y: 1080, data: {
+                    info: {
+                        content: "正在聊天……",
+                        name: "安保C",
+                        status: "进行中"
+                    }
+                }
+            }
+        ],
+        camera: [{x: 303, y: 1000, status: 'n'}, {x: 333, y: 1100, status: 'b'}, {x: 403, y: 1000, status: 'a'}, {x: 353, y: 1200, status: 'n'}, {x: 323, y: 1190, status: 'n'}]
     },
     uiBind: function(){
         $('#sel-bm, #sel-sj').dropselect();
         $('#dl-save').on('click', function(){
-            var $bt = $('.index-map-tools-icsel');
+            var $bt = $('.index-map-tools-icsel'), map = $('#index-map-img').data('smartmap');
             if($bt.length === 0) return;
             var dt = $.extend(main.randm(map.evdata.ty), {content: $('#dl-area').val() || '事件为空'});
-            map.addMark(map.evdata.ty, map.evdata.x, map.evdata.y, {info: dt});
+            map.addMark('events', map.evdata.ty, map.evdata.x, map.evdata.y, {info: dt});
             main.dialogClose($('#dl-events'));
+        });
+        $('#map-qh').on('click', function(){
+            var map = $('#index-map-img').data('smartmap'), imgs = $('#map-lt > img');
+            imgs.toggle();
+            setTimeout(function(){
+                map.loadmap(imgs.filter(':hidden')[0]);
+            }, 0);
         });
     }
 };
