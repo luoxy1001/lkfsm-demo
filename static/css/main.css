@@ -161,7 +161,7 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .csde{cursor:default;}
 
 /*icon*/
-[class^="ic-"], .ic-mark, .dl-ic{display:inline-block; vertical-align:middle; background-size:contain; background-repeat: no-repeat; background-position: center center;}
+[class^="ic-"], .ic-mark, .dl-ic, .ic-rd{display:inline-block; vertical-align:middle; background-size:contain; background-repeat: no-repeat; background-position: center center;}
 .ic-eye{background-image:url(../images/ic-eye.png);}
 .ic-dl{background-image:url(../images/ic-dl.png);}
 .ic-ywgl{background-image:url(../images/ic-ywgl.png);}
@@ -186,6 +186,10 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .ic-dl-dl{background-image:url(../images/ic-dl-dl.png);}
 .ic-dl-cmr{background-image:url(../images/ic-dl-cmr.png);}
 .ic-dl-zdy{background-image:url(../images/ic-dl-zdy.png);}
+.ic-rd{position: absolute; width:30px; height:30px; z-index: 2;}
+.ic-rd-lt{background-image:url(../images/rd-lt.png); left:-1px; top:-1px;}
+.ic-rd-rb{background-image:url(../images/rd-rb.png); right:-1px; bottom:-1px;}
+.ic-rd-rt{background-image:url(../images/rd-rt.png); right:-1px; top:-1px;}
 
 .btn, .btn-a{display:inline-block; vertical-align:middle; height:41px; line-height:41px;}
 .btn-dl{background:url(../images/btn-dl.png) center no-repeat; width:528px;}
