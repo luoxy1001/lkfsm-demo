@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>lkf-SmartCenter</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+<header class="haeder clearfix">
+    <h1 class="haeder-h1"></h1>
+    <ul class="header-nav">
+        <li><a href="supervisionCenter.html">监控中心</a></li>
+        <li><a href="businessManage.html">商户管理</a></li>
+        <li><a href="index.html">能源管理</a></li>
+        <li><a href="index.html">角色管理</a></li>
+    </ul>
+    <div class="header-user">
+        <a href="javascript:;" class="ic-user">Dave</a>
+        <a href="javascript:;">退出</a>
+    </div>
+</header>
+<section class="wrap supervision-wrap">
+    <div class="clearfix">
+    	<div class="supervision-left pull-left">
+    		<p class="supervision-count">
+    			<i class="ic-device-num mr-5"></i><span class="mr-10">报警设备数33</span><i class="ic-camera-num mr-5"></i><span class="mr-20">摄像头总数1000</span><span class="mr-20">当前视频位置：6楼设备6014~6020</span>
+    			<span id="select-option" class="pull-right">
+    				<i class="ic-one active"></i>
+    				<i class="ic-two"></i>
+    				<i class="ic-three"></i>
+    				<i class="ic-four"></i>
+    			</span>
+    		</p>
+    		<div id="img-wrapper" class="img-wrapper">
+    			<div class="img-inner-wrapper img-one">
+    				<img src="static/images/supervision-1.jpg">
+    			</div>
+    			<div class="img-inner-wrapper img-two" style="display:none;"> 
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg" class="last">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg" class="last">
+    			</div>  
+    			<div class="img-inner-wrapper img-three" style="display:none;"> 
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg" class="last">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg" class="last">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg" class="last">
+    			</div>
+    			<div class="img-inner-wrapper img-four" style="display:none;">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg" class="last">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg" class="last">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg" class="last">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg">
+	    			<img src="static/images/supervision-1.jpg" class="last">
+    			</div>
+    		</div>
+   			<div class="alarm-table ui-scroll mt-10">
+   				<div class="alarm-title clearfix">
+   					<div class="culumn-1 pull-left"><i class="ic-alert mr-20"></i>报警内容</div>
+   					<div class="culumn-2 pull-left">时间</div>
+   					<div class="culumn-3 pull-left">摄像头</div>
+   				</div> 
+   				<div class="alarm-list">
+   					<div class="culumn-1 pull-left"><i class="ic-yellow mr-20"></i><span class="alarm-list-content">系统检测有人在室内吸烟，已自动安排人员进行查看</span><span class="mr-10">|</span><a class="td-unl" href="javascript:;">明细</a></div>
+   					<div class="culumn-2 pull-left">2017-03-29/ 9:30  </div>
+   					<div class="culumn-3 pull-left">3楼325  摄像头</div>   					
+   				</div>
+    			<div class="alarm-list">
+   					<div class="culumn-1 pull-left"><i class="ic-red mr-20"></i><span class="alarm-list-content">系统检测有3个摄像头无法连接，已自动安排人员维修</span><span class="mr-10">|</span><a class="td-unl" href="javascript:;">明细</a></div>
+   					<div class="culumn-2 pull-left">2017-03-29/ 9:30  </div>
+   					<div class="culumn-3 pull-left">3楼325  摄像头</div>   					
+   				</div>
+   				<div class="alarm-list">
+   					<div class="culumn-1 pull-left"><i class="ic-yellow mr-20"></i><span class="alarm-list-content">系统检测有人在室内吸烟，已自动安排人员进行查看</span><span class="mr-10">|</span><a class="td-unl" href="javascript:;">明细</a></div>
+   					<div class="culumn-2 pull-left">2017-03-29/ 9:30  </div>
+   					<div class="culumn-3 pull-left">3楼325  摄像头</div>   					
+   				</div>
+   				<div class="alarm-list">
+   					<div class="culumn-1 pull-left"><i class="ic-yellow mr-20"></i><span class="alarm-list-content">系统检测有人在室内吸烟，已自动安排人员进行查看</span><span class="mr-10">|</span><a class="td-unl" href="javascript:;">明细</a></div>
+   					<div class="culumn-2 pull-left">2017-03-29/ 9:30  </div>
+   					<div class="culumn-3 pull-left">3楼325  摄像头</div>   					
+   				</div>
+   				<div class="alarm-list">
+   					<div class="culumn-1 pull-left"><i class="ic-yellow mr-20"></i><span class="alarm-list-content">系统检测有人在室内吸烟，已自动安排人员进行查看</span><span class="mr-10">|</span><a class="td-unl" href="javascript:;">明细</a></div>
+   					<div class="culumn-2 pull-left">2017-03-29/ 9:30  </div>
+   					<div class="culumn-3 pull-left">3楼325  摄像头</div>   					
+   				</div>
+   				<div class="alarm-list last">
+   					<div class="culumn-1 pull-left"><i class="ic-yellow mr-20"></i><span class="alarm-list-content">系统检测有人在室内吸烟，已自动安排人员进行查看</span><span class="mr-10">|</span><a class="td-unl" href="javascript:;">明细</a></div>
+   					<div class="culumn-2 pull-left">2017-03-29/ 9:30  </div>
+   					<div class="culumn-3 pull-left">3楼325  摄像头</div>   					
+   				</div>
+   			</div>
+    	</div>
+    	<div class="supervision-right pull-left ml-10 mt-15">
+    		<div class="device-list-wrapper">
+    			<ul class="device-list-title clearfix">
+    				<li class="device-list-title-item pull-left">设备列表</li>
+    				<li class="device-list-title-item pull-left last active">常用设备</li>
+    			</ul>
+    			<div class="device-list-content p-10">
+	    			<div class="mb-10">
+	    				<input class="device-search-inp" type="text" name="">
+	    				<a class="device-sure-btn" href="javascript:;">确定</a>
+	    			</div>
+    				<ul id="device-list" class="device-list ui-scroll mt-5">
+    					<li class="device-list-item"><dl><dt class="device-list-item-title"><i class="ic-total"></i>—<i class="ic-camera-1 mr-5"></i><span class="vam">3楼设备</span></dt><div class="item-concrete-wrapper"><div class="device-list-item-concrete" style="display:none;"><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd></div></div></dl></li>
+    					<li class="device-list-item"><dl><dt class="device-list-item-title"><i class="ic-total"></i>—<i class="ic-camera-1 mr-5"></i><span class="vam">4楼设备</span></dt><div class="item-concrete-wrapper"><div class="device-list-item-concrete" style="display:none;"><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd></div></div></dl></li>
+    					<li class="device-list-item"><dl><dt class="device-list-item-title"><i class="ic-total"></i>—<i class="ic-camera-1 mr-5"></i><span class="vam">6楼设备</span></dt><div class="item-concrete-wrapper last"><div class="device-list-item-concrete" style="display:none;"><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd></div></div></dl></li>
+    				</ul>  				
+    			</div>
+    		</div>
+    		<img style="margin-left:43px;margin-top:28px;cursor:pointer;" src="static/images/audio.png">
+    	</div>
+    </div>
+</section>
+
+<script src="static/lib/jquery-3.2.1.min.js"></script>
+<script src="static/js/common/jquery.dropselect.js"></script>
+<script>
+var main = {
+    init: function(){
+        main.uiBind();
+    },
+    dialog: function($t){
+        $('#dl-mask').show();
+        $t.show();
+    },
+    uiBind: function(){
+        //$('#sel-bm, #sel-sj').dropselect();
+        $("#select-option i").each(function(index){
+        	$(this).off().click(function(){
+	        	var $this = $(this) , $imgWrapper = $("#img-wrapper div.img-inner-wrapper");
+	        	$this.addClass("active").siblings().removeClass("active");
+	        	$imgWrapper.hide();
+	        	$imgWrapper.eq(index).show();
+       		});
+        });
+        $("#device-list .device-list-item-title").click(function(){
+        	$(this).parents(".device-list-item").find(".device-list-item-concrete").toggle();
+        });
+        
+    }
+};
+
+$(function(){
+    main.init();
+});
+</script>
+</body>
+</html>

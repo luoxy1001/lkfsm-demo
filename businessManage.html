@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>lkf-SmartCenter</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+<header class="haeder clearfix">
+    <h1 class="haeder-h1"></h1>
+    <ul class="header-nav">
+        <li><a href="supervisionCenter.html">监控中心</a></li>
+        <li><a href="businessManage.html">商户管理</a></li>
+        <li><a href="index.html">能源管理</a></li>
+        <li><a href="index.html">角色管理</a></li>
+    </ul>
+    <div class="header-user">
+        <a href="javascript:;" class="ic-user">Dave</a>
+        <a href="javascript:;">退出</a>
+    </div>
+</header>
+<div class="busi-manage-title">
+  <ul id="busi-manage-title" class="wrap busi-manage-wrap clearfix">    
+      <li class="busi-manage-item pull-left first ml-30 active"><span class="busi-manage-item-content">商户信息</span></li>
+      <li class="busi-manage-item pull-left"><span class="busi-manage-item-content">促销活动</span></li>    
+  </ul>
+</div>
+<section class="wrap busi-manage-wrap">
+    <div class="busi-manage-content pt-25 clearfix">
+        <select id="industry" class="mana-industry">
+            <option value="">行业类别</option>
+            <option value="1">金融</option>
+            <option value="1">建筑</option>
+            <option value="1">互联网</option>
+            <option value="1">教育</option>
+        </select>
+        <select id="floor" class="mana-floor">
+            <option value="">楼层</option>
+            <option value="1">1</option>
+            <option value="1">2</option>
+            <option value="1">3</option>
+            <option value="1">4</option>
+            <option value="1">5</option>
+        </select>
+        <span class="mana-search-warpper vam"><input class="mana-search" type="text" name="" placeholder="活动名称/店铺名称"></span>
+        <a id="mana-add-user-btn" class="mana-add-user-btn pull-right" href="javascript:;">添加商户</a>
+    </div>
+    <table id="busi-mana-user-table" class="busi-mana-table">
+      <thead>
+        <th class="user-column-1">商户名称</th>
+        <th class="user-column-2">具体地址</th>
+        <th class="user-column-3">联系方式</th>
+        <th class="user-column-4">负责人名</th>
+        <th class="user-column-5">录入时间</th>
+        <th class="user-column-6">修改时间</th>
+        <th class="user-column-7">管理</th>
+        <th class="user-column-8">删除</th>
+      </thead>
+      <tbody>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>          
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>            
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>            
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>              
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>             
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>             
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>             
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>             
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>             
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select mr-20"></i>切瑞蒂专卖店</td>
+          <td class="user-column-2">13楼 B区   13026号</td>
+          <td class="user-column-3">003-3251648932</td>
+          <td class="user-column-4">张三</td>
+          <td class="user-column-5"> 2016-03-03  8:30</td>
+          <td class="user-column-6">2017-03-03  10:30</td>
+          <td class="user-column-7"><i class="ic-manage"></i></td>
+          <td class="user-column-8"><i class="ic-delete"></i></td>             
+        </tr>
+        <tr class="user-row-select-all"><td><i id="ic-select-all" class="ic-select ml-15 mr-20"></i><a class="user-delete-btn mt-10" href="javascript:;">删除</a></td></tr>
+      </tbody>
+    </table>
+    <table id="busi-mana-activity-table" class="busi-mana-table" style="display:none;">
+      <thead>
+        <th class="activity-column-1">产品图</th>
+        <th class="activity-column-2">活动名称</th>
+        <th class="activity-column-3">活动内容</th>
+        <th class="activity-column-4">举办商户</th>
+        <th class="activity-column-5">活动时间</th>
+        <th class="activity-column-6">审核状态</th>
+        <th class="activity-column-7">活动状态</th>
+        <th class="activity-column-8">操作</th>
+      </thead>
+      <tbody>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">积分大转盘</br>好礼兑换活动</td>
+          <td class="activity-column-3">喜迎问道十一周年来袭,特在门店开启积分大转盘活动!签到积分累计多了的小伙伴欢迎来参加哦</td>
+          <td class="activity-column-4">艾莉莎专卖店铺</td>
+          <td class="activity-column-5"> 3月29日00:00</br>~</br>4月9日 23:59</td>
+          <td class="activity-column-6">未审核</td>
+          <td class="activity-column-7">上线</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">通过审核</li><li class="modify-item">未通过</li><li class="modify-item">下线</li><li class="modify-item">上线</li><li class="modify-item">删除</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">积分大转盘</br>好礼兑换活动</td>
+          <td class="activity-column-3">喜迎问道十一周年来袭,特在门店开启积分大转盘活动!签到积分累计多了的小伙伴欢迎来参加哦</td>
+          <td class="activity-column-4">艾莉莎专卖店铺</td>
+          <td class="activity-column-5"> 3月29日00:00</br>~</br>4月9日 23:59</td>
+          <td class="activity-column-6">未审核</td>
+          <td class="activity-column-7">上线</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">通过审核</li><li class="modify-item">未通过</li><li class="modify-item">下线</li><li class="modify-item">上线</li><li class="modify-item">删除</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">积分大转盘</br>好礼兑换活动</td>
+          <td class="activity-column-3">喜迎问道十一周年来袭,特在门店开启积分大转盘活动!签到积分累计多了的小伙伴欢迎来参加哦</td>
+          <td class="activity-column-4">艾莉莎专卖店铺</td>
+          <td class="activity-column-5"> 3月29日00:00</br>~</br>4月9日 23:59</td>
+          <td class="activity-column-6">未审核</td>
+          <td class="activity-column-7">上线</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">通过审核</li><li class="modify-item">未通过</li><li class="modify-item">下线</li><li class="modify-item">上线</li><li class="modify-item">删除</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">积分大转盘</br>好礼兑换活动</td>
+          <td class="activity-column-3">喜迎问道十一周年来袭,特在门店开启积分大转盘活动!签到积分累计多了的小伙伴欢迎来参加哦</td>
+          <td class="activity-column-4">艾莉莎专卖店铺</td>
+          <td class="activity-column-5"> 3月29日00:00</br>~</br>4月9日 23:59</td>
+          <td class="activity-column-6">未审核</td>
+          <td class="activity-column-7">上线</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">通过审核</li><li class="modify-item">未通过</li><li class="modify-item">下线</li><li class="modify-item">上线</li><li class="modify-item">删除</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">积分大转盘</br>好礼兑换活动</td>
+          <td class="activity-column-3">喜迎问道十一周年来袭,特在门店开启积分大转盘活动!签到积分累计多了的小伙伴欢迎来参加哦</td>
+          <td class="activity-column-4">艾莉莎专卖店铺</td>
+          <td class="activity-column-5"> 3月29日00:00</br>~</br>4月9日 23:59</td>
+          <td class="activity-column-6">未审核</td>
+          <td class="activity-column-7">上线</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">通过审核</li><li class="modify-item">未通过</li><li class="modify-item">下线</li><li class="modify-item">上线</li><li class="modify-item">删除</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="page"></div>
+</section>
+<!--dialog-->
+<div class="mask" id="dl-mask"></div>
+<div class="dialog dl-event" id="dl-dl">
+    <h3 class="dl-title"><i class="dl-ic ic-dl-dl"></i>导流事件<strong class="ml-10 fw-b fc-white">TRAFFIC GROOMING</strong></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content">
+        <table class="tb-form">
+            <tbody>
+                <tr>
+                    <th width="12%">日期</th>
+                    <td width="35%">2017/03/05/21:00</td>
+                    <th width="12%">地点</th>
+                    <td width="34%">1F~B区 2~4 走廊</td>
+                </tr>
+                <tr>
+                    <th>部门</th>
+                    <td>
+                        <select id="sel-bm">
+                            <option value="1">运维部门</option>
+                            <option value="2">安保部门</option>
+                        </select>
+                    </td>
+                    <th>时间</th>
+                    <td>
+                        <select id="sel-sj">
+                            <option value="0">立即执行</option>
+                            <option value="12">12:00</option>
+                            <option value="14">14:00</option>
+                            <option value="16">16:00</option>
+                            <option value="28">18:00</option>
+                            <option value="20">20:00</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>备注</th>
+                    <td colspan="3">
+                        <textarea class="form-area"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dl-footer">
+        <a href="javascript:;" class="btn btn-dl"></a>
+    </div>
+</div>
+<script src="static/lib/jquery-3.2.1.min.js"></script>
+<script src="static/js/common/jquery.dropselect.js"></script>
+<script>
+var main = {
+    init: function(){
+        main.uiBind();
+    },
+    dialog: function($t){
+        $('#dl-mask').show();
+        $t.show();
+    },
+    uiBind: function(){
+        $('#industry, #floor').dropselect({
+          width : 153,
+          panelwidth : 188
+        }); 
+        $("#busi-mana-activity-table .ic-modify").click(function(){
+          $(this).next(".modify-list").show();
+        });
+        $("#busi-mana-activity-table .modify-list").click(function(){
+          $(this).hide();
+        });
+        var $tables = $(".busi-mana-table")
+        $("li.busi-manage-item").each(function(index){
+          $(this).click(function(){
+            if(index === 0){
+              $("#mana-add-user-btn").show();
+            }else{
+              $("#mana-add-user-btn").hide();
+            }
+            $(this).addClass("active").siblings().removeClass("active");
+            $tables.eq(index).show().siblings(".busi-mana-table").hide();
+          })
+        });
+        $(".ic-select").click(function(){
+          $(this).toggleClass("active");
+        });
+        $("#ic-select-all").click(function(){
+          $(this).toggleClass("active");
+          $("#busi-mana-user-table .ic-select").toggleClass("active");
+        });
+        $("#mana-add-user-btn").click(function(){
+            main.dialog($('#dl-dl'));
+        });
+    },
+    dialog: function($t){
+        $('#dl-mask').show();
+        $t.show();
+    },
+};
+
+$(function(){
+    main.init();
+});
+</script>
+</body>
+</html>

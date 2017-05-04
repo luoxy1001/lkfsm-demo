@@ -128,6 +128,7 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .pt-10{padding-top:10px !important;}
 .pt-15{padding-top:15px !important;}
 .pt-20{padding-top:20px !important;}
+.pt-25{padding-top:25px !important;}
 .pt-30{padding-top:30px !important;}
 .pt-40{padding-top:40px !important;}
 .pt-55{padding-top:55px !important;}
@@ -308,3 +309,34 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .index-map-info-ct{height:75px; margin-top:6px;}
 .index-map-info-bm{text-align: right; padding:0 10px;}
 .index-map-info-bm a{color:#007ebf;}
+
+/*滚动条样式ie*/
+.ui-scroll
+{
+    overflow-y: auto;
+    scrollbar-face-color: #09c0ef;
+    scrollbar-track-color: #003770;
+    scrollbar-arrow-color: #09c0ef;
+    scrollbar-highlight-color: #09c0ef;
+    scrollbar-shadow-color: #09c0ef;
+}
+/*滚动条样式webkit内核*/
+.ui-scroll::-webkit-scrollbar{
+    width: 16px;
+    border: 1px solid #09c0ef;
+}
+.ui-scroll::-webkit-scrollbar-thumb/*滑块*/
+{
+    background-color: #09c0ef;
+}
+.ui-scroll::-webkit-scrollbar-track/*滚动槽*/
+{
+    background-color: #003770;
+    border: 1px solid #09c0ef;
+}
+.ui-scroll::-webkit-scrollbar-button{
+    background: transparent;
+}
+.ui-scroll::-webkit-scrollbar-arrow-color{
+    color: #09c0ef;
+}
