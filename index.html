@@ -12,7 +12,7 @@
         <li><a href="supervisionCenter.html">监控中心</a></li>
         <li><a href="businessManage.html">商户管理</a></li>
         <li><a href="index.html">能源管理</a></li>
-        <li><a href="index.html">角色管理</a></li>
+        <li><a href="systemManage.html">角色管理</a></li>
     </ul>
     <div class="header-user">
         <a href="javascript:;" class="ic-user">Dave</a>
@@ -75,11 +75,64 @@
                 </div>
             </div>
         </div>
-        <div class="index-right">
-            <div class="main-panel index-video">
+        <div class="index-right main-panel">
+            <div class="index-video">
                 <i class="ic-rd ic-rd-lt"></i>
                 <i class="ic-rd ic-rd-rt"></i>
                 <h2 class="main-panel-title">安防维护</h2>
+                <ul class="index-video-list clearfix">
+                    <li class="index-video-main">
+                        <img src="static/images/temp/tmp-v1.png"/>
+                        <a class="index-vdtag-item"><span>1</span>东门厅<i></i></a>
+                    </li>
+                    <li><img src="static/images/temp/tmp-v2.png"/></li>
+                    <li><img src="static/images/temp/tmp-v3.png"/></li>
+                    <li class="mr-10"><img src="static/images/temp/tmp-v4.png"/></li>
+                    <li class="mr-10"><img src="static/images/temp/tmp-v5.png"/></li>
+                    <li><img src="static/images/temp/tmp-v6.png"/></li>
+                </ul>
+                <div class="index-note" id="index-note">
+                    <ul>
+                        <li><a href="javascipt:;">商场1F/B区遗落物品，系统已自动通知安防人员前去查看... </a></li>
+                        <li><a href="javascipt:;">商场2F/C区有垃圾，系统已自动通知保洁人员前去查看... </a></li>
+                        <li><a href="javascipt:;">商场3F/A区有斗殴，系统已自动通知安防人员前去查看... </a></li>
+                        <li><a href="javascipt:;">商场4F/B区有钱抢，系统已自动通知安防人员前去查看... </a></li>
+                        <li><a href="javascipt:;">商场5F/B区有MM，系统已自动通知安防人员前去查看... </a></li>
+                    </ul>
+                </div>
+                <dl class="index-vdtag clearfix">
+                    <dt></dt>
+                    <dd>
+                        <a class="index-vdtag-item" href="javascript:;"><span>1</span>东门厅<i></i></a>
+                        <a class="index-vdtag-item index-vdtag-itemcur" href="javascript:;"><span>2</span>东走廊<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>3</span>餐厅<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>4</span>西门厅<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>5</span>东门厅<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>6</span>东走廊<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>7</span>东门厅<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>…</span>更多<i></i></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="tab index-evts">
+                <ul class="tab-title clearfix">
+                    <li class="tab-cur">进行中（22）</li>
+                    <li>已完成（223）</li>
+                </ul>
+                <div class="tab-content tab-cur">
+                    <ul class="index-evts-list ui-scroll">
+                        <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-ywgl"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
+                    </ul>
+                </div>
+                <div class="tab-content"></div>
             </div>
         </div>
     </div>
@@ -140,6 +193,7 @@
 <script src="static/lib/jquery-3.2.1.min.js"></script>
 <script src="static/lib/heatmap.js"></script>
 <script src="static/lib/echarts.min.js"></script>
+<script src="static/js/common/jquery.scroll.js"></script>
 <script src="static/js/common/jquery.dropselect.js"></script>
 <script src="static/js/common/jquery.smartmap.js"></script>
 <script>
@@ -489,6 +543,7 @@ var main = {
                 map.loadmap(imgs.filter(':hidden')[0]);
             }, 0);
         });
+        $('#index-note').scrolltxt();
     }
 };
 

@@ -13,7 +13,7 @@
         <li><a href="supervisionCenter.html">监控中心</a></li>
         <li><a href="businessManage.html">商户管理</a></li>
         <li><a href="index.html">能源管理</a></li>
-        <li><a href="index.html">角色管理</a></li>
+        <li><a href="systemManage.html">角色管理</a></li>
     </ul>
     <div class="header-user">
         <a href="javascript:;" class="ic-user">Dave</a>
@@ -156,6 +156,9 @@ var main = {
         });
         $("#device-list .device-list-item-title").click(function(){
         	$(this).parents(".device-list-item").find(".device-list-item-concrete").toggle();
+        });
+        $(".device-list-title-item").click(function(){
+          $(this).addClass("active").siblings().removeClass("active");
         });
         
     }
