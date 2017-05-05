@@ -242,6 +242,9 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .dl-footer{text-align: center; padding-top:15px;}
 .dl-close{position:absolute; background:url(about:blank); width:18px; height:18px; right:0; top:32px; z-index: 92}
 
+.dl-customize{width:1060px; height:526px; margin-left:-530px; margin-top:-263px; background:url(../images/dl-zdy.png) center center no-repeat;}
+
+
 /* ui-dropselect */
 .ui-dropselect{position:relative; display:inline-block; height:26px; }
 .ui-dropselect-input{
@@ -299,7 +302,7 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .main-panel-title2 > span{display: block; position: absolute; width:149px; height:22px; line-height: 22px; left:8px; top:-1px; text-align: center; background-color:#00336c;}
 
 .index-left{width:770px; float: left;}
-.index-right{width:500px; float: right;}
+.index-right{width:500px; float: right; border-radius: 10px 10px 0 0;}
 .index-map{height:320px;}
 .index-charts{height:165px; width:378px; float:left;}
 .index-charts-1{width:388px; border-right:none; border-radius: 10px 0 0 0;}
@@ -351,7 +354,7 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .index-map-info-bm{text-align: right; padding:0 10px;}
 .index-map-info-bm a{color:#007ebf;}
 
-.index-video{padding: 35px 10px 0; border-radius: 10px 10px 0 0;}
+.index-video{padding: 35px 10px 0;}
 .index-video-list{position:relative;}
 .index-video-list > li{float:left; width:152px; height:84px; margin-bottom:10px;}
 .index-video-list > li.index-video-main{width:315px; height:178px; float:left; margin-right:10px; position:relative; overflow:hidden;}
@@ -384,3 +387,19 @@ a.index-vdtag-item{
 .index-evts-list > li:nth-child(even){background-color:#004d8b;}
 .index-evts-list i{width:17px; height:13px; margin-right:20px;}
 .index-evts-date{float:right;}
+
+.dl-customize .dl-content{margin-top:-18px;}
+.dl-customize-lt{width:586px; height:450px; float:left; position:relative;}
+.dl-customize-rt{width:400px; float:right; padding-top:30px;}
+.dl-customize .form-area{width:360px; height:200px;}
+.dl-customize-btn{
+    display: block;
+    width: 379px;
+    height: 41px;
+    margin-top: 43px;
+    margin-left: 10px;
+}
+.dl-map-br{
+    position:absolute; width:162px; height:25px; line-height:25px; text-align:center; right:-1px; bottom:-9px;
+    background:url(../images/bg-floora.png) center no-repeat;
+}
