@@ -200,8 +200,16 @@
                 <div class="index-map-marks"></div>
             </div>
             <div class="dl-map-br">1F/5层</div>
-            <div class="dl-map-tc">
-                <a href="javascript:;" class="ic-sxt"></a><a href="javascript:;" class="ic-ry"></a>
+            <div class="dl-map-tc" id="dl-ct">
+                <a href="javascript:;" class="ic-pos" data-type="path"></a><a class="ic-ry"></a>
+                <select id="sel-bma">
+                    <option value="1">运维部门人员1</option>
+                    <option value="1">运维部门人员2</option>
+                    <option value="1">运维部门人员3</option>
+                    <option value="2">安保部门人员1</option>
+                    <option value="2">安保部门人员2</option>
+                    <option value="2">安保部门人员3</option>
+                </select>
             </div>
         </div>
         <div class="dl-customize-rt">
@@ -256,9 +264,10 @@ var main = {
         $('#index-map-img').smartmap();
         $('#dl-map-img').smartmap();
         setTimeout(function(){
-            var $mp = $('#index-map-img').data('smartmap');
+            var $mp = $('#index-map-img').data('smartmap'), $dlmp = $('#dl-map-img').data('smartmap');
             $.each(main.expdata.person, function(n, ite){
                 $mp.addMark('person', 'person', ite.x, ite.y, ite.data);
+                $dlmp.addMark('person', 'person', ite.x, ite.y, ite.data);
             });
             $.each(main.expdata.camera, function(n, ite){
                 $mp.addMark('camera', 'camera' + ite.status, ite.x, ite.y, {});
@@ -585,9 +594,12 @@ var main = {
         camera: [{x: 303, y: 1000, status: 'n'}, {x: 333, y: 1100, status: 'b'}, {x: 403, y: 1000, status: 'a'}, {x: 353, y: 1200, status: 'n'}, {x: 323, y: 1190, status: 'n'}]
     },
     uiBind: function(){
-        $('#sel-bm, #sel-sj, #sel-sja').dropselect();
+        var map = $('#index-map-img').data('smartmap'), $dlmp = $('#dl-map-img').data('smartmap');
+
+        $('#sel-bm, #sel-bma, #sel-sj, #sel-sja').dropselect();
+
         $('#dl-save, #dl-csave').on('click', function(){
-            var $bt = $('.index-map-tools-icsel'), map = $('#index-map-img').data('smartmap'),
+            var $bt = $('.index-map-tools-icsel'),
                     $dlar = $('#dl-area'), $d = $('#dl-events'), ty = map.evdata.ty;
             //if($bt.length === 0) return;
             if(ty === 'customize'){
@@ -598,6 +610,7 @@ var main = {
             map.addMark('events', ty, map.evdata.x, map.evdata.y, {info: dt});
             main.dialogClose($d);
         });
+
         $('#map-qh').on('click', function(){
             var map = $('#index-map-img').data('smartmap'), imgs = $('#map-lt > img');
             imgs.toggle();
@@ -605,7 +618,14 @@ var main = {
                 map.loadmap(imgs.filter(':hidden')[0]);
             }, 0);
         });
+
         $('#index-note').scrolltxt();
+
+        $('#dl-ct>a[data-type]').on('click', function(){
+            var $t = $(this), ct = $t.attr('data-type');
+            $dlmp.marks.attr('class', 'index-map-marks index-map-marks-person index-map-marks-' + ct);
+            $t.toggleClass('index-map-tools-icsel');
+        });
     }
 };
 

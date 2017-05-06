@@ -201,7 +201,8 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .ic-qh{background-image:url(../images/ic-qh.png);}
 .ic-ry{background-image:url(../images/ic-ry.png);}
 .ic-sxt{background-image:url(../images/ic-sxt.png);}
-.ic-mark{width:24px; height:27px; position: absolute; margin-left:-12px; margin-top:-27px; cursor:pointer;}
+.ic-pos{background-image:url(../images/ic-pos.png);}
+.ic-mark{width:24px; height:27px; position: absolute; margin-left:-12px; margin-top:-27px; cursor:pointer; color:#fff; text-align: center;}
 .ic-mark:hover{z-index:94;}
 .ic-mark-ck{background-image:url(../images/ic-mark-ck.png);}
 .ic-mark-dl{background-image:url(../images/ic-mark-dl.png);}
@@ -308,7 +309,8 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .index-charts-1{width:388px; border-right:none; border-radius: 10px 0 0 0;}
 .index-charts-2{border-left:none; border-radius: 0 0 10px 0; width:380px;}
 
-.index-map-img, .index-charts-inner{position: relative; width:100%; height: 100%; overflow: hidden;}
+.index-map-img, .index-charts-inner{position: relative; width:100%; height: 100%; overflow: hidden; }
+.index-map-img{background: #00275a;}
 /*.index-map-img > canvas{width:100%; height:100%;}*/
 .index-map-img > canvas{transform-origin:left top; position: absolute;}
 .index-map-marks{position: absolute;}
@@ -331,6 +333,7 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .index-map-bm > a{
     display: inline-block; width:40px; height:22px; border-left:1px solid #007ebf;
     border-top:1px solid #007ebf; vertical-align: middle; background-size:auto;
+    background-color: #00275a;
 }
 .index-map-bm > a:hover, .index-map-bm > a.cur{background-color:#008ad0;}
 
@@ -403,3 +406,11 @@ a.index-vdtag-item{
     position:absolute; width:162px; height:25px; line-height:25px; text-align:center; right:-1px; bottom:-9px;
     background:url(../images/bg-floora.png) center no-repeat;
 }
+.dl-map-tc{position:absolute; top:-1px; right:40px; height:26px; border-left:1px solid #007ebf;}
+.dl-map-tc > a{
+    display: inline-block; width:40px; height:24px; border-right:1px solid #007ebf;
+    border-bottom:1px solid #007ebf; vertical-align: middle; background-size:auto;
+    border-top:1px solid #007ebf; background-color: #00275a;
+}
+.dl-map-tc > a.index-map-tools-icsel{background-color:#008ad0;}
+.dl-map-tc > .ui-dropselect{margin-left:-5px;}

@@ -18,7 +18,26 @@
 }
 
 (function($) {
-	function smartMap(el, opt){
+    //求斜边长度
+    function getBeveling(x, y){
+        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    }
+
+    function drawDashLine(context, x1, y1, x2, y2, dashLen){
+        dashLen = dashLen === undefined ? 5 : dashLen;
+        //得到斜边的总长度
+        var beveling = getBeveling(x2 - x1, y2 - y1);
+        //计算有多少个线段
+        var num = Math.floor(beveling/dashLen);
+        context.beginPath();
+        for(var i = 0 ; i < num; i++){
+            context[i%2 === 0 ? 'moveTo' : 'lineTo'](x1+(x2-x1)/num*i,y1+(y2-y1)/num*i);
+        }
+        context.stroke();
+        context.closePath();
+    }
+
+    function smartMap(el, opt){
 		this.default = $.extend({
 			width: 1265,
 			height: 1284,
@@ -26,7 +45,7 @@
 			level: 0,
 			lvar: [1, .9, .8, .7, .6, .5, .4, .3],
 			src: 'static/images/map.png',
-			bgcolor: '#00336c',
+			bgcolor: '#00275a', //00336c
 			events: {
 				'view': {icon: 'ic-mark-ck', ttype: '事件'},
 				'diversion': {icon: 'ic-mark-dl', ttype: '事件'},
@@ -44,6 +63,7 @@
 				camera: [],
 				path: []
 			},
+            pathmks: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 		}, opt || {});
 		this.panel = el;
 		this.init.call(this);
@@ -167,6 +187,9 @@
 			$mk.data('mkx', x);
 			$mk.data('mky', y);
 			$mk.data('mkdt', data);
+            if(category === 'path'){
+                $mk.text(data.pathmk);
+            }
 
 			$mk.on('click', function(e){
 				$.type(cbk) === 'function' && cbk.call(this);
@@ -177,6 +200,14 @@
 		clearMark: function(){
 			this.marks.empty();
 		},
+        addPath: function(){
+            var self = this, evdt = self.evdata, le = self.pathar.length;
+            self.addMark('path', evdt.ty, evdt.x, evdt.y, {pathmk: self.default.pathmks.charAt(le - 1)});
+            if(le > 1){
+                var pdt = self.pathar[le-2];
+                drawDashLine(self.ctx, pdt.x, pdt.y, evdt.x, evdt.y, 5);
+            }
+        },
 		panelMove: function(mx, my){
 			var self = this, $p = self.panel.parent(), mbl = self.default.lvar[-self.level],
 				maxLeft = self.marks.width() - $p.width() + 10,
@@ -231,10 +262,21 @@
 				click: function(e){
 					moveFlag = false;
 					if(!clickFlag) return;
-					var $bt = $('.index-map-tools-icsel');
+					var $bt = $(this).parent().parent().find('.index-map-tools-icsel');
 					if($bt.length === 0) return;
 					var ty = $bt.attr('data-type'), bl = self.default.lvar[-self.level];
 					self.evdata = {ty: ty, x: e.offsetX/bl, y: e.offsetY/bl};
+                    if(ty === 'path'){
+                        self.ctx.lineWidth = '2';
+                        self.ctx.strokeStyle = '#009ad8';
+                        if(self.pathar){
+                            self.pathar.push(self.evdata);
+                        }else{
+                            self.pathar = [self.evdata];
+                        }
+                        self.addPath();
+                        return;
+                    }
 					main.evdialog(ty);
 				}
 			});
