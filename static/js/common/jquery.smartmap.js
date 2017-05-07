@@ -43,6 +43,7 @@
 			height: 1284,
 			point: [-5, -920],
 			level: 0,
+            ltbl:.375,
 			lvar: [1, .9, .8, .7, .6, .5, .4, .3],
 			src: 'static/images/map.png',
 			bgcolor: '#00275a', //00336c
@@ -89,6 +90,11 @@
 			img.onload = function(){
 				self.loadmap(img);
 				self.setMapLevel(self.default.level);
+                var $img = self.panel.parent().parent().find('.index-map-lt').children('img');
+                if($img.length > 0){
+                    $img.css({width: opts.width * opts.ltbl + 'px', height: opts.height * opts.ltbl + 'px'});
+                    self.ltimg = $img;
+                }
 				self.panelMove(opts.point[0], opts.point[1]);
 			};
 
@@ -174,7 +180,7 @@
 				var ifh = '<div class="index-map-info"><div class="index-map-info-t clearfix"><span class="pull-left">'
 					+ ttype + ':' + data.info.name + '</span><span class="pull-right">' + data.info.status + '</span></div>'
 					+ '<div class="index-map-info-ct">' + data.info.content + '</div><div class="index-map-info-bm">'
-					+ '<a href="javascript:;" class="btn-a">编辑</a><a href="javascript:;" class="btn-a ml-15">确定</a></div></div>';
+					+ '<a href="javascript:;" class="btn-a evtmodify">编辑</a><a href="javascript:;" class="btn-a ml-15 evtcfm">确定</a></div></div>';
 				var $if = $(ifh).appendTo($mk);
 				$mk.hover(function(){
 					$mk.children('.index-map-info').show();
@@ -192,6 +198,17 @@
             }
 
 			$mk.on('click', function(e){
+                if($(e.target).hasClass('evtmodify')){
+                    if(category === 'events'){
+                        main.evdialog(type, $mk);
+                        $(this).children('.index-map-info').hide();
+                    }
+                    return false;
+                }
+                if($(e.target).hasClass('evtcfm')){
+                    $(this).children('.index-map-info').hide();
+                    return false;
+                }
 				$.type(cbk) === 'function' && cbk.call(this);
 				return false;
 			});
@@ -222,6 +239,9 @@
 
 			self.marks.css({'left': mx + 'px', 'top': my + 'px'});
 			self.panel.css({'left': mx + 'px', 'top': my + 'px'});
+            if(self.ltimg){
+                self.ltimg.css({'left': mx * self.default.ltbl + 'px', 'top': my * self.default.ltbl + 'px'});
+            }
 			self.marksfmt();
 		},
 		dragg: function(){
@@ -275,6 +295,10 @@
                             self.pathar = [self.evdata];
                         }
                         self.addPath();
+                        return;
+                    }
+                    if(ty === 'person'){
+                        self.addMark('person', ty, self.evdata.x, self.evdata.y, {});
                         return;
                     }
 					main.evdialog(ty);

@@ -11,7 +11,7 @@
     <ul class="header-nav">
         <li><a href="supervisionCenter.html">监控中心</a></li>
         <li><a href="businessManage.html">商户管理</a></li>
-        <li><a href="index.html">能源管理</a></li>
+        <li><a href="javascript:;">能源管理</a></li>
         <li><a href="systemManage.html">角色管理</a></li>
     </ul>
     <div class="header-user">
@@ -65,7 +65,7 @@
                     <i class="ic-rd ic-rd-lt"></i>
                     <h2 class="main-panel-title2"><span>车位数据信息</span></h2>
                     <div class="pt-30 pl-10">
-                        <img src="static/images/temp/tmp-1.png"/>
+                        <img src="static/images/temp/tmp-1.png" id="yycw"/>
                     </div>
                 </div>
                 <div class="main-panel index-charts index-charts-2">
@@ -120,7 +120,7 @@
                     <li>已完成（223）</li>
                 </ul>
                 <div class="tab-content tab-cur">
-                    <ul class="index-evts-list ui-scroll">
+                    <ul class="index-evts-list ui-scroll" id="example">
                         <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
                         <li><i class="ic-eye"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
                         <li><i class="ic-ywgl"></i><a href="javascript:;">查看事件/系统检测有人在吸烟12层B区已自动...</a><span class="index-evts-date">2018/03/06</span></li>
@@ -201,7 +201,7 @@
             </div>
             <div class="dl-map-br">1F/5层</div>
             <div class="dl-map-tc" id="dl-ct">
-                <a href="javascript:;" class="ic-pos" data-type="path"></a><a class="ic-ry"></a>
+                <a href="javascript:;" class="ic-pos" data-type="path"></a><a href="javascript:;" class="ic-ry" data-type="person"></a>
                 <select id="sel-bma">
                     <option value="1">运维部门人员1</option>
                     <option value="1">运维部门人员2</option>
@@ -250,6 +250,118 @@
     </div>
 </div>
 
+<div class="dialog dl-customize dl-detail" id="dl-detail">
+    <h3 class="dl-title"><i class="dl-ic ic-dl-dl"></i>自定义事件</h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content clearfix">
+        <div class="dl-customize-lt">
+            <div class="index-map-img">
+                <canvas id="dl-detail-map">浏览器不支持canvas</canvas>
+                <div class="index-map-marks index-map-marks-path index-map-marks-person"></div>
+            </div>
+            <div class="dl-map-br">1F/5层</div>
+        </div>
+    </div>
+</div>
+
+<div class="dialog dl-sxt" id="dl-sxt">
+    <h3 class="dl-title"></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content clearfix">
+
+    </div>
+</div>
+
+<div class="dialog dl-yycw" id="dl-yycw">
+    <h3 class="dl-title"></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content clearfix">
+        <table class="tb-a">
+            <thead>
+                <tr>
+                    <th>车主姓名</th>
+                    <th>车牌号码</th>
+                    <th>预约停放位置</th>
+                    <th>预约时间</th>
+                    <th>联系方式</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>RD3073K</td>
+                    <td>地下停车场12层C区3021车位</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <script src="static/lib/jquery-3.2.1.min.js"></script>
 <script src="static/lib/heatmap.js"></script>
 <script src="static/lib/echarts.min.js"></script>
@@ -263,14 +375,19 @@ var main = {
         //map.init();
         $('#index-map-img').smartmap();
         $('#dl-map-img').smartmap();
+        $('#dl-detail-map').smartmap();
         setTimeout(function(){
-            var $mp = $('#index-map-img').data('smartmap'), $dlmp = $('#dl-map-img').data('smartmap');
+            var $mp = $('#index-map-img').data('smartmap'), $dlmp = $('#dl-map-img').data('smartmap'),
+                    $dldt = $('#dl-detail-map').data('smartmap');;
             $.each(main.expdata.person, function(n, ite){
                 $mp.addMark('person', 'person', ite.x, ite.y, ite.data);
                 $dlmp.addMark('person', 'person', ite.x, ite.y, ite.data);
+                $dldt.addMark('person', 'person', ite.x, ite.y, ite.data);
             });
             $.each(main.expdata.camera, function(n, ite){
-                $mp.addMark('camera', 'camera' + ite.status, ite.x, ite.y, {});
+                $mp.addMark('camera', 'camera' + ite.status, ite.x, ite.y, {}, function(){
+                    main.dialog($('#dl-sxt'));
+                });
             });
         }, 10);
         main.chartsInit();
@@ -537,8 +654,8 @@ var main = {
         $('#dl-mask').hide();
         $t.hide();
     },
-    evdialog: function(ty){
-        var $d = $('#dl-events'), $dlar = $('#dl-area'), obj = {
+    evdialog: function(ty, $mk){
+        var $d = $('#dl-events'), $dlar = $('#dl-area'), txt = '', obj = {
             'view': '<i class="dl-ic ic-dl-dl"></i>查看事件<strong class="ml-10 fw-b fc-white">VIEW</strong>',
             'diversion': '<i class="dl-ic ic-dl-dl"></i>导流事件<strong class="ml-10 fw-b fc-white">TRAFFIC GROOMING</strong>',
             'yunwei': '<i class="dl-ic ic-dl-dl"></i>运维事件<strong class="ml-10 fw-b fc-white">MAINTENANCE</strong>',
@@ -549,7 +666,13 @@ var main = {
             $dlar = $('#dl-carea');
         }
         $d.children('.dl-title').html(obj[ty]);
-        $dlar.val('');
+        if($mk){
+            txt = $mk.find('.index-map-info-ct').text();
+            $d.data('mk', $mk);
+        }else{
+            $d.data('mk', '');
+        }
+        $dlar.val(txt);
         main.dialog($d);
     },
     randm: function(ty){
@@ -594,7 +717,8 @@ var main = {
         camera: [{x: 303, y: 1000, status: 'n'}, {x: 333, y: 1100, status: 'b'}, {x: 403, y: 1000, status: 'a'}, {x: 353, y: 1200, status: 'n'}, {x: 323, y: 1190, status: 'n'}]
     },
     uiBind: function(){
-        var map = $('#index-map-img').data('smartmap'), $dlmp = $('#dl-map-img').data('smartmap');
+        var map = $('#index-map-img').data('smartmap'), $dlmp = $('#dl-map-img').data('smartmap'),
+                $dldt = $('#dl-detail-map').data('smartmap');
 
         $('#sel-bm, #sel-bma, #sel-sj, #sel-sja').dropselect();
 
@@ -606,8 +730,13 @@ var main = {
                 $d = $('#dl-customize');
                 $dlar = $('#dl-carea');
             }
-            var dt = $.extend(main.randm(ty), {content: $dlar.val() || '事件为空'});
-            map.addMark('events', ty, map.evdata.x, map.evdata.y, {info: dt});
+            if($d.data('mk')){
+                $d.data('mk').find('.index-map-info-ct').text($dlar.val() || '事件为空');
+            }else{
+                var dt = $.extend(main.randm(ty), {content: $dlar.val() || '事件为空'});
+                map.addMark('events', ty, map.evdata.x, map.evdata.y, {info: dt});
+            }
+
             main.dialogClose($d);
         });
 
@@ -623,8 +752,38 @@ var main = {
 
         $('#dl-ct>a[data-type]').on('click', function(){
             var $t = $(this), ct = $t.attr('data-type');
-            $dlmp.marks.attr('class', 'index-map-marks index-map-marks-person index-map-marks-' + ct);
-            $t.toggleClass('index-map-tools-icsel');
+            $dlmp.marks.attr('class', 'index-map-marks index-map-marks-path index-map-marks-person');
+            $t.toggleClass('index-map-tools-icsel').siblings('.index-map-tools-icsel').removeClass('index-map-tools-icsel');
+        });
+
+        $('#example > li').on('click', function(){
+            $dldt.clearMark();
+            $dlmp.marks.children().each(function(){
+                var $mk = $(this), category = $mk.attr('data-category'),
+                    x = $mk.data('mkx'),
+                    y = $mk.data('mky'),
+                    data = $mk.data('mkdt');
+
+                $dldt.evdata = {ty: category, x: x, y: y};
+
+                if(category === 'path'){
+                    $dldt.ctx.lineWidth = '2';
+                    $dldt.ctx.strokeStyle = '#009ad8';
+                    if($dldt.pathar){
+                        $dldt.pathar.push({ty: category, x: x, y: y});
+                    }else{
+                        $dldt.pathar = [{ty: category, x: x, y: y}];
+                    }
+                    $dldt.addPath();
+                }else{
+                    $dldt.addMark(category, category, x, y, data);
+                }
+            });
+            main.dialog($('#dl-detail'));
+        });
+
+        $('#yycw').click(function(){
+            main.dialog($('#dl-yycw'));
         });
     }
 };
