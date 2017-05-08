@@ -1,4 +1,5 @@
 /*监控中心开始*/
+html, body{background: #003770;}
 .supervision-wrap{
 	width: 1298px;
 }
@@ -260,20 +261,20 @@
 	background: #09c0ef;
 }
 /*商户管理开始*/
-.busi-manage-wrap{
+.manage-wrap{
 	width: 1247px;
 }
-.busi-manage-title{
+.manage-title{
 	height: 37px;
 	line-height: 37px;
 	background:#08305a;
 }
-.busi-manage-item{
+.manage-item{
 	position: relative;
 	padding: 0 10px;
 	cursor: pointer;
 }
-.busi-manage-item:before{
+.manage-item:before{
 	content: "";
 	position: absolute;
 	width: 1px;
@@ -282,18 +283,18 @@
 	left: 0;
 	background: #125396;
 }
-.busi-manage-item.first:before{
+.manage-item.first:before{
 	width: 0;
 	height: 0;
 }
-.busi-manage-content{
+.manage-content{
 	background:#003770;
 }
-.busi-manage-item-content{
+.manage-item-content{
 	display: inline-block;
 	height: 34px;
 }
-.busi-manage-item.active .busi-manage-item-content{
+.manage-item.active .manage-item-content{
 	border-bottom: 3px solid #094a9e;
 }
 .mana-industry,.mana-floor{
@@ -302,11 +303,11 @@
 }
 .mana-search{
 	width: 224px;
-	height: 24px;
+	height: 28px;
 	padding-left: 20px;
 	padding-right: 30px;
-	line-height: 24px;
-	background: #08305a url(../images/search.png) 247px 5px no-repeat;
+	line-height: 28px;
+	background: #08305a url(../images/search.png) 247px 7px no-repeat;
 	border:1px solid #009bbb;
 	color: #00e6ff;
 }
@@ -318,23 +319,23 @@
 .mana-search-warpper:after{
 	content: "";
 	position: absolute;
-    width: 19px;
-    height: 19px;
+    width: 22px;
+    height: 22px;
     background: #003770;
-    right: -11px;
-    top: -11px;
+    right: -12px;
+    top: -12px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     transform-origin: center;
     -webkit-transform-origin: center;
     border:1px solid #009bbb;
 }
-.busi-mana-table{
+.busi-mana-table,.system-mana-table{
 	margin: 25px auto;
 	text-align: center;
 	border-collapse: collapse; 
 }
-.busi-mana-table th{
+.busi-mana-table th,.system-mana-table th{
 	height: 28px;
 	line-height: 28px;
 	background: #094a9e;
@@ -365,29 +366,54 @@
 	position: relative;
 	width: 92px;
 }
-.user-column-1{
-	width: 150px;
+.busi-mana-table .user-column-1{
+	width: 30px;
+	text-align: right;
 }
-.user-column-2{
+.busi-mana-table .user-column-2{
+	width: 120px;
+}
+.busi-mana-table .user-column-3{
 	width: 258px;
 }
-.user-column-3{
+.busi-mana-table .user-column-4{
 	width: 172px;
 }
-.user-column-4{
+.busi-mana-table .user-column-5{
 	width: 124px;
 }
-.user-column-5{
+.busi-mana-table .user-column-6{
 	width: 159px;
 }
-.user-column-6{
+.busi-mana-table .user-column-7{
 	width: 216px;
 }
-.user-column-7{
+.busi-mana-table .user-column-8{
 	width: 68px;
 }
-.user-column-8{
+.busi-mana-table .user-column-9{
 	width: 99px;
+}
+.system-mana-table .user-column-1{
+	width: 75px;
+}
+.system-mana-table .user-column-2{
+	width: 155px;
+}
+.system-mana-table .user-column-3{
+	width: 165px;
+}
+.system-mana-table .user-column-4{
+	width: 174px;
+}
+.system-mana-table .user-column-5{
+	width: 218px;
+}
+.system-mana-table .user-column-6{
+	width: 212px;
+}
+.system-mana-table .user-column-7{
+	width: 250px;
 }
 .activity-row .activity-column-2,.activity-row .activity-column-3,.activity-row .activity-column-4,.activity-row .activity-column-5,.activity-row .activity-column-6,.activity-row .activity-column-7{
 	padding:0 20px;
@@ -441,6 +467,17 @@
 	text-indent: 63px;
 	background: url(../images/add-users.png) center no-repeat;
 }
+.system-user-btn{
+	width: 88px;
+	height: 30px;
+	margin-right: 27px;
+	line-height: 30px;
+	text-align: center;
+	background: url(../images/btn-db.png) center no-repeat;
+}
+.system-user-btn:hover{
+	background: url(../images/btn-db-hover.png) center no-repeat;
+}
 .ic-manage{
 	width: 15px;
 	height: 16px;
@@ -488,3 +525,105 @@
 	margin: 0 auto;
 	background: url(../images/page.jpg) center no-repeat;
 }
+.ic-add-user{
+	background: url(../images/ic-add-user.png) center no-repeat;
+}
+.btn-add-uer{
+	background: url(../images/btn-add-uer.png) center no-repeat;
+    width: 528px;
+}
+.au-content{
+	padding: 5px 42px 5px 54px;
+}
+.add-user-item{
+	display: inline-block;
+	width:72px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.add-user-inp{
+	width: 140px;
+	height: 28px;
+	padding: 0 10px;
+	background : #0c243c;
+	border:1px solid #2582a9;
+	color: #fff;
+}
+.sel-industry{
+	width: 160px;
+}
+.add-user-form-area{
+	width: 400px;
+	height: 30px;
+	padding: 0 10px;
+	background : #0c243c;
+	border:1px solid #2582a9;
+	color:#fff;
+}
+.add-user-footer{
+	margin-top:110px;
+	margin-left: 46px;
+}
+.system-mana-title{
+	height: 60px;
+	line-height: 60px;
+	text-align: left;
+}
+.ic-com-user{
+	width: 18px;
+	height: 15px;
+	background: url(../images/ic-com-user.png) center no-repeat;
+}
+.system-mana-item{
+	padding: 0 30px 40px;
+	background: #094a9e;
+}
+.system-mana-inner-list{
+	margin-right: -13px;
+}
+.system-mana-inner-item{
+	float: left;
+	width: 255px;
+	margin-right: 13px;
+	padding: 0 15px 15px;
+	border:1px solid #6f92bf;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background: #003770;
+	color: #d2d7e2;
+	text-align: left;
+}
+.system-mana-inner-item dd{
+	height: 43px;
+	border-bottom: 1px solid #d2d7e2;
+	line-height: 43px;
+}
+.system-mana-inner-item dt{
+	height: 35px;
+	line-height: 35px;
+}
+
+.bmchart{width:1085px; margin:20px auto; padding:30px 85px; background:#fff; color:#546a79;}
+.bmchart-title > h2{font-size:20px; color:#4f5f6f;}
+.bmchart-title > span{font-size:13px; color:#7e8e9f;}
+.bmchart-tm{border:2px solid #3391d4; font-size:16px; padding:2px 10px; color:#000;}
+.bmchart-title > .pull-right{margin-top:15px;}
+.bmchart-1{height:340px;}
+.bmchart-2{border:3px solid #ddd;}
+.bmchart-2 > li{border:1px solid #ddd; float:left; width:33.33%; text-align:center;
+	height:220px; overflow:hidden;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.bmchart-2 > li > h3{font-size:16px; font-weight:bold; color:#333; padding:25px 25px 10px; text-align:left;}
+.bmchart-3{border-width:4px;}
+.bmchart-3 .bmchart-title{padding:25px 25px 0;}
+.bmchart-3-ul{padding:20px 0 40px 20px;}
+.bmchart-3-ul > li{float:left; margin-left:30px;}
+.bmchart-3-ul > li > h4{height:40px; line-height:40px; border-bottom:1px solid #d9d9d9; color:#333;}
+.bmchart-3-1{width:455px;}
+.bmchart-3-2{width:287px;}
+.bmchart-3-3{width:185px;}
+

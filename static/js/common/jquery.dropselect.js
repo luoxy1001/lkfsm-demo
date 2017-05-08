@@ -61,6 +61,9 @@
 			if(_t.opt.width){
 				_t.inp.css('width', _t.opt.width + 'px');
 			}
+			if(_t.opt.height){
+				_t.inp.css('height', _t.opt.height + 'px');
+			}
 			if(_t.opt.panelwidth){
 				_t.panel.css('width', _t.opt.panelwidth + 'px');
 			}

@@ -176,16 +176,27 @@
 			var self = this, opts = self.default, mks = opts.events, mk = mks[type], $nd = self.marks;
 			var $mk = $('<i class="ic-mark ' + mk.icon + '"></i>'), bl = self.default.lvar[-self.level];
 			if(data.info){
-				var ttype = mk.ttype;
+				var ttype = mk.ttype, dtbtn = data.info.ifbtn, ifbtn = dtbtn || '编辑', ifcls = dtbtn?'curmodify':'evtmodify',
+					cfmcls = dtbtn?'evtdel':'evtcfm', cfmtx = dtbtn?'删除':'确认';
+
+				var btna = '<a href="javascript:;" class="btn-a ' + ifcls + '">' + ifbtn + '</a>';
+				var btnb = '<a href="javascript:;" class="btn-a ml-15 ' + cfmcls + '">' + cfmtx + '</a>';
+				var dtct = '<textarea class="index-map-info-ct ui-scroll" readonly="readonly">' + data.info.content + '</textarea>';
+
+				if(dtbtn){
+					btna += '<a href="javascript:;" class="btn-a curmdfcmf" style="display:none;">确认</a>';
+				}
+
 				var ifh = '<div class="index-map-info"><div class="index-map-info-t clearfix"><span class="pull-left">'
 					+ ttype + ':' + data.info.name + '</span><span class="pull-right">' + data.info.status + '</span></div>'
-					+ '<div class="index-map-info-ct">' + data.info.content + '</div><div class="index-map-info-bm">'
-					+ '<a href="javascript:;" class="btn-a evtmodify">编辑</a><a href="javascript:;" class="btn-a ml-15 evtcfm">确定</a></div></div>';
+					+ dtct + '<div class="index-map-info-bm">'
+					+ btna + btnb + '</div></div>';
+
 				var $if = $(ifh).appendTo($mk);
 				$mk.hover(function(){
-					$mk.children('.index-map-info').show();
+					$(this).children('.index-map-info').show();
 				}, function(){
-					$mk.children('.index-map-info').hide();
+					$(this).children('.index-map-info').hide();
 				});
 			}
 
@@ -196,6 +207,11 @@
             if(category === 'path'){
                 $mk.text(data.pathmk);
             }
+			$mk.find('.index-map-info-ct').on('focus', function(){
+				if($(this).prop('readonly')){
+					$(this).blur();
+				}
+			});
 
 			$mk.on('click', function(e){
                 if($(e.target).hasClass('evtmodify')){
@@ -209,8 +225,28 @@
                     $(this).children('.index-map-info').hide();
                     return false;
                 }
+				if($(e.target).hasClass('curmodify')){
+					var $tar = $(this).find('.index-map-info-ct'), v = $tar.val();
+					$tar.prop('readonly', false).removeAttr('readonly');
+					$(e.target).hide();
+					$(this).find('.curmdfcmf').show();
+					return false;
+				}
+				if($(e.target).hasClass('curmdfcmf')){
+					var $tar = $(this).find('.index-map-info-ct'), v = $tar.val();
+					$tar.prop('readonly', true);
+					$(e.target).hide();
+					$(this).find('.curmodify').show();
+					return false;
+				}
+				if($(e.target).hasClass('evtdel')){
+					$(this).remove();
+					return false;
+				}
 				$.type(cbk) === 'function' && cbk.call(this);
 				return false;
+			}).on('mousemove', function(e){
+				e.stopPropagation();
 			});
 			$mk.css({left: x * bl + 'px', top: y * bl + 'px'}).appendTo($nd);
 		},
@@ -251,7 +287,7 @@
 
 			self.marks.on({
 				mousedown: function(e){
-					e.preventDefault();
+					//e.preventDefault();
 					moveFlag = true;
 					clickFlag = true;
 					var $t = $(this), pos = $t.position();
@@ -298,7 +334,14 @@
                         return;
                     }
                     if(ty === 'person'){
-                        self.addMark('person', ty, self.evdata.x, self.evdata.y, {});
+                        self.addMark('person', ty, self.evdata.x, self.evdata.y, {
+							info: {
+								content: "暂无事件",
+								name: "安保C",
+								status: "进行中",
+								ifbtn: '编辑'
+							}
+						});
                         return;
                     }
 					main.evdialog(ty);

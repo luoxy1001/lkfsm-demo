@@ -11,7 +11,7 @@
     <a href="index.html" class="haeder-h1"></a>
     <ul class="header-nav">
         <li><a href="supervisionCenter.html">监控中心</a></li>
-        <li><a href="businessManage.html">商户管理</a></li>
+        <li><a href="bmchart.html">商户管理</a></li>
         <li><a href="javascript:;">能源管理</a></li>
         <li><a href="systemManage.html">角色管理</a></li>
     </ul>
@@ -22,7 +22,7 @@
 </header>
 <div class="manage-title">
   <ul id="manage-title" class="wrap manage-wrap clearfix">    
-      <li class="manage-item pull-left first ml-30 active"><span class="manage-item-content">商户信息</span></li>
+      <li class="manage-item pull-left first ml-30"><span class="manage-item-content">商户信息</span></li>
       <li class="manage-item pull-left"><span class="manage-item-content">促销活动</span></li>    
   </ul>
 </div>
@@ -46,7 +46,7 @@
         <span class="mana-search-warpper vam"><input class="mana-search" type="text" name="" placeholder="活动名称/店铺名称"></span>
         <a id="mana-add-user-btn" class="mana-add-user-btn pull-right" href="javascript:;">添加商户</a>
     </div>
-    <table id="busi-mana-user-table" class="busi-mana-table">
+    <table id="busi-mana-user-table" class="busi-mana-table" style="display:none;">
       <thead>
         <th class="user-column-1" colspan="2">商户名称</th>
         <th class="user-column-2">具体地址</th>
@@ -251,7 +251,7 @@
 <div class="mask" id="dl-mask"></div>
 <div class="dialog dl-event" id="dl-dl">
     <h3 class="dl-title"><i class="dl-ic ic-add-user"></i>添加商户名单</h3>
-    <a class="dl-close" href="javascript:;"></a>
+    <a class="dl-close" href="javascript:main.dialogClose($('#dl-dl'));"></a>
     <div class="dl-content au-content">
       <div class="mb-20">
           <span class="add-user-item">商户名称</span>
@@ -276,7 +276,7 @@
       </div>
     </div>
     <div class="dl-foote add-user-footer">
-        <a href="javascript:;" class="btn btn-add-uer"></a>
+        <a href="javascript:main.dialogClose($('#dl-dl'));" class="btn btn-add-uer"></a>
     </div>
 </div>
 <script src="static/lib/jquery-3.2.1.min.js"></script>
@@ -284,11 +284,20 @@
 <script>
 var main = {
     init: function(){
+        if(location.hash){
+            main.tabs(1, $("li.manage-item").eq(1));
+        }else{
+            main.tabs(0, $("li.manage-item").eq(0));
+        }
         main.uiBind();
     },
     dialog: function($t){
         $('#dl-mask').show();
         $t.show();
+    },
+    dialogClose: function($t){
+        $('#dl-mask').hide();
+        $t.hide();
     },
     uiBind: function(){
         $('#industry, #floor').dropselect({
@@ -304,13 +313,7 @@ var main = {
         var $tables = $(".busi-mana-table")
         $("li.manage-item").each(function(index){
           $(this).click(function(){
-            if(index === 0){
-              $("#mana-add-user-btn").show();
-            }else{
-              $("#mana-add-user-btn").hide();
-            }
-            $(this).addClass("active").siblings().removeClass("active");
-            $tables.eq(index).show().siblings(".busi-mana-table").hide();
+              main.tabs(index, $(this));
           })
         });
         $(".ic-select").not(".ic-select-all").click(function(){
@@ -323,8 +326,17 @@ var main = {
             main.dialog($('#dl-dl'));
         });
         $('#sel-industry').dropselect({
-          panelwidth : 160
+          panelwidth : 160, width: 123
         });
+    },
+    tabs: function(index, $t){
+        if(index === 0){
+            $("#mana-add-user-btn").show();
+        }else{
+            $("#mana-add-user-btn").hide();
+        }
+        $t.addClass("active").siblings().removeClass("active");
+        $(".busi-mana-table").hide().eq(index).show();
     },
     isSelectAll : function($obj , $isSelect){
         $obj.toggleClass("active");

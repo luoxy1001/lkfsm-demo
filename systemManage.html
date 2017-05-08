@@ -11,7 +11,7 @@
     <a href="index.html" class="haeder-h1"></a>
     <ul class="header-nav">
         <li><a href="supervisionCenter.html">监控中心</a></li>
-        <li><a href="businessManage.html">商户管理</a></li>
+        <li><a href="bmchart.html">商户管理</a></li>
         <li><a href="javascript:;">能源管理</a></li>
         <li><a href="systemManage.html">角色管理</a></li>
     </ul>
@@ -225,7 +225,7 @@
 <div class="mask" id="dl-mask"></div>
 <div class="dialog dl-event" id="dl-dl">
     <h3 class="dl-title"><i class="dl-ic ic-add-user"></i>添加商户名单</h3>
-    <a class="dl-close" href="javascript:;"></a>
+    <a class="dl-close" href="javascript:main.dialogClose($('#dl-dl'));"></a>
     <div class="dl-content au-content">
       <div class="mb-20">
           <span class="add-user-item">商户名称</span>
@@ -250,7 +250,7 @@
       </div>
     </div>
     <div class="dl-foote add-user-footer">
-        <a href="javascript:;" class="btn btn-add-uer"></a>
+        <a href="javascript:main.dialogClose($('#dl-dl'));" class="btn btn-add-uer"></a>
     </div>
 </div>
 <script src="static/lib/jquery-3.2.1.min.js"></script>
@@ -285,7 +285,8 @@ var main = {
             main.dialog($('#dl-dl'));
         });
         $('#sel-industry').dropselect({
-            panelwidth : 160
+            panelwidth : 160,
+            width: 123
         });
         $(".ic-select").not(".ic-select-all").click(function(){
             $(this).toggleClass("active");
@@ -305,10 +306,10 @@ var main = {
           $isSelect.removeClass("active");
         }   
     },
-    dialog: function($t){
-        $('#dl-mask').show();
-        $t.show();
-    },
+    dialogClose: function($t){
+        $('#dl-mask').hide();
+        $t.hide();
+    }
 };
 
 $(function(){

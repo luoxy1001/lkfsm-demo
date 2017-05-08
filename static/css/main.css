@@ -3,9 +3,9 @@
 /*CSS reset*/
 body{
     font:14px/1.5 tahoma,arial,'Hiragino Sans GB',"Microsoft Yahei","微软雅黑",simsun,sans-serif;
-    position:relative;min-width:1336px; color:#00e6ff;overflow-x:hidden; background-color:#004681;
-    background:url(../images/bg.jpg) center no-repeat; background-size: 100%;
+    position:relative;min-width:1336px; color:#00e6ff;overflow-x:hidden;
 }
+body.index-pg{background:url(../images/bg.jpg) center no-repeat; background-size: 100%;}
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
 table{border-collapse:collapse;border-spacing:0;}
 fieldset,img{border:0; vertical-align:middle;}
@@ -194,17 +194,22 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .csde{cursor:default;}
 
 /*icon*/
-[class^="ic-"], .ic-mark, .dl-ic, .ic-rd, .index-evts-list i{display:inline-block; vertical-align:middle; background-size:contain; background-repeat: no-repeat; background-position: center center;}
+[class^="ic-"], .ic-mark, .dl-ic, .ic-rd, .index-evts-list i, .ic-del{display:inline-block; vertical-align:middle; background-size:contain; background-repeat: no-repeat; background-position: center center;}
 .ic-eye{background-image:url(../images/ic-eye.png);}
 .ic-dl{background-image:url(../images/ic-dl.png);}
 .ic-ywgl{background-image:url(../images/ic-ywgl.png);}
 .ic-zdy{background-image:url(../images/ic-zdy.png);}
+.ic-dl.index-map-tools-icsel, .ic-dl:hover{background-image:url(../images/ic-dl-h.png);}
+.ic-ywgl.index-map-tools-icsel, .ic-ywgl:hover{background-image:url(../images/ic-ywgl-h.png);}
+.ic-zdy.index-map-tools-icsel, .ic-zdy:hover{background-image:url(../images/ic-zdy-h.png);}
 .ic-add{background-image:url(../images/ic-add.png);}
 .ic-less{background-image:url(../images/ic-less.png);}
 .ic-note{background-image:url(../images/ic-note.png);}
 .ic-qh{background-image:url(../images/ic-qh.png);}
 .ic-ry{background-image:url(../images/ic-ry.png);}
 .ic-sxt{background-image:url(../images/ic-sxt.png);}
+.ic-ry.cur, .ic-ry.index-map-tools-icsel, .ic-ry:hover{background-image:url(../images/ic-ry-h.png);}
+.ic-sxt.cur, .ic-sxt:hover{background-image:url(../images/ic-sxt-h.png);}
 .ic-pos{background-image:url(../images/ic-pos.png);}
 .ic-mark{width:24px; height:27px; position: absolute; margin-left:-12px; margin-top:-27px; cursor:pointer; color:#fff; text-align: center;}
 .ic-mark:hover{z-index:94;}
@@ -224,6 +229,7 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .ic-rd-lt{background-image:url(../images/rd-lt.png); left:-1px; top:-1px;}
 .ic-rd-rb{background-image:url(../images/rd-rb.png); right:-1px; bottom:-1px;}
 .ic-rd-rt{background-image:url(../images/rd-rt.png); right:-1px; top:-1px;}
+.ic-del{width:11px; height:11px; background-image: url(../images/ic-del.png);}
 
 .btn, .btn-a{display:inline-block; vertical-align:middle; height:41px; line-height:41px;}
 .btn-dl{background:url(../images/btn-dl.png) center no-repeat; width:528px;}
@@ -255,6 +261,7 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .dl-detail{width:649px; height:526px; margin-left:-325px; margin-top:-263px; background:url(../images/dl-detl.png) center center no-repeat;}
 .dl-sxt{width:1060px; height:526px; margin-left:-530px; margin-top:-263px; background:url(../images/dl-sxt.png) center center no-repeat;}
 .dl-yycw{width:649px; height:526px; margin-left:-325px; margin-top:-263px; background:url(../images/dl-yycw.png) center center no-repeat;}
+.dl-tjsp{width:1060px; height:526px; margin-left:-530px; margin-top:-263px; background:url(../images/dl-tjsp.png) center center no-repeat;}
 
 /* ui-dropselect */
 .ui-dropselect{position:relative; display:inline-block; height:26px; }
@@ -308,7 +315,7 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
     width:165px; height:20px; border: 1px solid #0179b6;
     position: absolute; top:0; left:50%;
     margin-left:-83px; margin-top:-5px;
-    background-color:#00336c;
+    background:#00336c;
 }
 .main-panel-title2 > span{display: block; position: absolute; width:149px; height:22px; line-height: 22px; left:8px; top:-1px; text-align: center; background-color:#00336c;}
 
@@ -363,7 +370,14 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
     padding:0 10px 10px 24px; color:#007ebf; z-idnex:95; display:none;
 }
 .index-map-info-t{border-bottom:1px solid #004d86; padding:6px 8px 4px 6px;}
-.index-map-info-ct{height:75px; margin-top:6px;}
+.index-map-info-ct{
+    height: 75px;
+    margin-top: 6px;
+    width: 190px;
+    background: #0c243c;
+    border: none;
+    color: #007ebf;
+}
 .index-map-info-bm{text-align: right; padding:0 10px;}
 .index-map-info-bm a{color:#007ebf;}
 
@@ -382,8 +396,8 @@ a.hv-unl:hover, a.td-unl:hover{text-decoration:underline;}
 .index-vdtag > dt{width:70px; height:54px; float:left; background:url(../images/temp/index-xstbg.png) center no-repeat;}
 .index-vdtag > dd{margin-left:70px;}
 a.index-vdtag-item{
-    display:block; width:86px; background:#00396f; float:left; border-radius:12px; padding:3px; position:relative;
-    text-align:center; margin:2px 0 2px 10px; line-height:18px; font-size:12px; color:#57bbf7;
+    display:block; width:86px; background-color:#00396f; float:left; border-radius:12px; padding:3px; position:relative;
+    text-align:center; margin:2px 0 2px 10px; height:18px; line-height:18px; font-size:12px; color:#57bbf7;
 }
 .index-video-main > .index-vdtag-item {
     position: absolute; left: 0; bottom: 10px; color: #fff; margin:0; float:none; width:72px;
@@ -427,4 +441,16 @@ a.index-vdtag-item{
 .dl-detail .dl-customize-lt{width:585px; height:318px;}
 .dl-detail .dl-map-br{bottom:-1px;}
 .dl-yycw .dl-content{padding-top:25px; padding-right: 32px;}
-
+.dl-tjsp .dl-customize-lt{width:676px; height:346px;}
+.dl-tjsp .index-map-bm{right:0; height:25px; bottom:-1px;}
+.dl-tjsp .index-map-bm a{height:23px;}
+.dl-tjsp .dl-map-br{bottom:-1px; right:81px;}
+.dl-tjsp .dl-customize-rt{width:293px; padding-top:70px;}
+.dl-tjsp .device-list{height:262px; width:265px;}
+.dl-tjsp .index-vdtag{width:485px; position:absolute; left:70px; bottom:26px;}
+.dl-tjsp a.index-vdtag-item.ic-add{
+    background-position:center; background-repeat: no-repeat; background-color:transparent;
+    border:1px dashed #00396f;
+}
+.dl-tjsp .index-vdtag > dt{background:none;}
+.index-vdtag-item > i.ic-del{width:11px; height:11px; background-color:transparent; display:block;}

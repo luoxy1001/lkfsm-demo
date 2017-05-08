@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <title>lkf-SmartCenter</title>
     <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
-<body>
+<body class="index-pg">
 <header class="haeder clearfix">
     <h1 class="haeder-h1"></h1>
     <ul class="header-nav">
         <li><a href="supervisionCenter.html">监控中心</a></li>
-        <li><a href="businessManage.html">商户管理</a></li>
+        <li><a href="bmchart.html">商户管理</a></li>
         <li><a href="javascript:;">能源管理</a></li>
         <li><a href="systemManage.html">角色管理</a></li>
     </ul>
@@ -102,7 +103,7 @@
                 </div>
                 <dl class="index-vdtag clearfix">
                     <dt></dt>
-                    <dd>
+                    <dd class="clearfix" id="index-vdtag">
                         <a class="index-vdtag-item" href="javascript:;"><span>1</span>东门厅<i></i></a>
                         <a class="index-vdtag-item index-vdtag-itemcur" href="javascript:;"><span>2</span>东走廊<i></i></a>
                         <a class="index-vdtag-item" href="javascript:;"><span>3</span>餐厅<i></i></a>
@@ -222,24 +223,24 @@
                 <tr>
                     <th>任务名称</th>
                     <td>
-                        <input class="form-inp" type="text"/>
+                        <input class="form-inp" type="text" id="zdy-title"/>
                     </td>
                 </tr>
                 <tr>
                     <th>执行时间</th>
                     <td>
                         <select id="sel-sja">
-                            <option value="0">立即执行</option>
-                            <option value="12">12:00</option>
-                            <option value="14">14:00</option>
-                            <option value="16">16:00</option>
-                            <option value="28">18:00</option>
-                            <option value="20">20:00</option>
+                            <option value="2017/03/05" selected="selected">立即执行</option>
+                            <option value="2017/03/05">12:00</option>
+                            <option value="2017/03/05">14:00</option>
+                            <option value="2017/03/05">16:00</option>
+                            <option value="2017/03/05">18:00</option>
+                            <option value="2017/03/05">20:00</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" class="tac">
                         <textarea class="form-area" id="dl-carea"></textarea>
                     </td>
                 </tr>
@@ -362,6 +363,43 @@
     </div>
 </div>
 
+<div class="dialog dl-customize dl-tjsp" id="dl-tjsp">
+    <h3 class="dl-title"></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content clearfix">
+        <div class="dl-customize-lt">
+            <div class="index-map-img">
+                <canvas id="map-img-tjsp">浏览器不支持canvas</canvas>
+                <div class="index-map-marks index-map-marks-camera"></div>
+            </div>
+            <div class="dl-map-br">1F/5层</div>
+            <div class="index-map-bm">
+                <a href="javascript:;" class="ic-sxt cur"></a><a href="javascript:;" class="ic-ry"></a>
+            </div>
+        </div>
+        <div class="dl-customize-rt">
+            <ul id="device-list" class="device-list ui-scroll mt-5">
+                <li class="device-list-item"><dl><dt class="device-list-item-title"><i class="ic-total"></i>—<i class="ic-camera-1 mr-5"></i><span class="vam">3楼设备</span></dt><div class="item-concrete-wrapper"><div class="device-list-item-concrete" style="display:none;"><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd></div></div></dl></li>
+                <li class="device-list-item"><dl><dt class="device-list-item-title"><i class="ic-total"></i>—<i class="ic-camera-1 mr-5"></i><span class="vam">4楼设备</span></dt><div class="item-concrete-wrapper"><div class="device-list-item-concrete" style="display:none;"><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd></div></div></dl></li>
+                <li class="device-list-item"><dl><dt class="device-list-item-title"><i class="ic-total"></i>—<i class="ic-camera-1 mr-5"></i><span class="vam">6楼设备</span></dt><div class="item-concrete-wrapper last"><div class="device-list-item-concrete" style="display:none;"><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd></div></div></dl></li>
+            </ul>
+        </div>
+        <dl class="index-vdtag clearfix">
+            <dt></dt>
+            <dd class="clearfix" id="dl-index-vdtag">
+                <a class="index-vdtag-item" href="javascript:;"><span>1</span>东门厅<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>2</span>东走廊<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>3</span>餐厅<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>4</span>西门厅<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>5</span>东门厅<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>6</span>东走廊<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>7</span>东门厅<i class="ic-del"></i></a>
+                <a class="index-vdtag-item ic-add" href="javascript:;"></a>
+            </dd>
+        </dl>
+    </div>
+</div>
+
 <script src="static/lib/jquery-3.2.1.min.js"></script>
 <script src="static/lib/heatmap.js"></script>
 <script src="static/lib/echarts.min.js"></script>
@@ -376,17 +414,21 @@ var main = {
         $('#index-map-img').smartmap();
         $('#dl-map-img').smartmap();
         $('#dl-detail-map').smartmap();
+        $('#map-img-tjsp').smartmap();
         setTimeout(function(){
             var $mp = $('#index-map-img').data('smartmap'), $dlmp = $('#dl-map-img').data('smartmap'),
-                    $dldt = $('#dl-detail-map').data('smartmap');;
+                    $dldt = $('#dl-detail-map').data('smartmap'), $dlxst = $('#map-img-tjsp').data('smartmap');
             $.each(main.expdata.person, function(n, ite){
                 $mp.addMark('person', 'person', ite.x, ite.y, ite.data);
-                $dlmp.addMark('person', 'person', ite.x, ite.y, ite.data);
-                $dldt.addMark('person', 'person', ite.x, ite.y, ite.data);
+                //$dlmp.addMark('person', 'person', ite.x, ite.y, ite.data);
+                //$dldt.addMark('person', 'person', ite.x, ite.y, ite.data);
             });
             $.each(main.expdata.camera, function(n, ite){
                 $mp.addMark('camera', 'camera' + ite.status, ite.x, ite.y, {}, function(){
                     main.dialog($('#dl-sxt'));
+                });
+                $dlxst.addMark('camera', 'camera' + ite.status, ite.x, ite.y, {}, function(){
+                    //main.dialog($('#dl-sxt'));
                 });
             });
         }, 10);
@@ -691,7 +733,8 @@ var main = {
                     info: {
                         content: "正在巡视……",
                         name: "安保A",
-                        status: "进行中"
+                        status: "进行中",
+                        ifbtn: '编辑'
                     }
                 }
             },
@@ -700,7 +743,8 @@ var main = {
                     info: {
                         content: "正在睡觉……",
                         name: "安保B",
-                        status: "进行中"
+                        status: "进行中",
+                        ifbtn: '编辑'
                     }
                 }
             },
@@ -709,7 +753,8 @@ var main = {
                     info: {
                         content: "正在聊天……",
                         name: "安保C",
-                        status: "进行中"
+                        status: "进行中",
+                        ifbtn: '编辑'
                     }
                 }
             }
@@ -729,6 +774,8 @@ var main = {
             if(ty === 'customize'){
                 $d = $('#dl-customize');
                 $dlar = $('#dl-carea');
+                var tle = $('#zdy-title').val() || '未知事件', sj = '2017/05/05';
+                $('#example').prepend('<li><i class="ic-eye"></i><a href="javascript:;">' + tle + '</a><span class="index-evts-date">' + sj + '</span></li>');
             }
             if($d.data('mk')){
                 $d.data('mk').find('.index-map-info-ct').text($dlar.val() || '事件为空');
@@ -756,7 +803,7 @@ var main = {
             $t.toggleClass('index-map-tools-icsel').siblings('.index-map-tools-icsel').removeClass('index-map-tools-icsel');
         });
 
-        $('#example > li').on('click', function(){
+        $('#example').delegate("li","click",function(){
             $dldt.clearMark();
             $dlmp.marks.children().each(function(){
                 var $mk = $(this), category = $mk.attr('data-category'),
@@ -784,6 +831,17 @@ var main = {
 
         $('#yycw').click(function(){
             main.dialog($('#dl-yycw'));
+        });
+
+        $("#device-list .device-list-item-title").click(function(){
+            $(this).parents(".device-list-item").find(".device-list-item-concrete").toggle();
+        });
+        $(".device-list-title-item").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+
+        $('#index-vdtag > a').click(function(){
+            main.dialog($('#dl-tjsp'));
         });
     }
 };
