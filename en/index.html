@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>lkf-SmartCenter</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body class="index-pg">
+<header class="haeder clearfix">
+    <h1 class="haeder-h1"></h1>
+    <ul class="header-nav">
+        <li><a href="supervisionCenter.html">Supervision Center</a></li>
+        <li><a href="bmchart.html">Merchant Management</a></li>
+        <li><a href="javascript:;">Power Management</a></li>
+        <li><a href="systemManage.html">Role Management</a></li>
+    </ul>
+    <div class="header-user">
+        <a href="javascript:;" class="ic-user">Dave</a>
+        <a href="javascript:;">Logout</a>
+    </div>
+</header>
+<section class="wrap">
+    <div class="main-box clearfix">
+        <div class="index-left">
+            <div class="main-panel index-map">
+                <i class="ic-rd ic-rd-lt"></i>
+                <i class="ic-rd ic-rd-rb"></i>
+                <h2 class="main-panel-title">Area Map Events</h2>
+                <div class="index-map-img">
+                    <canvas id="index-map-img">The browser does not support canvas</canvas>
+                    <div class="index-map-ht"></div>
+                    <div class="index-map-marks"></div>
+                </div>
+                <div class="index-map-tools">
+                    <a class="index-map-tools-ic ic-eye" href="javascript:;" data-type="view"></a>
+                    <a class="index-map-tools-ic ic-dl" href="javascript:;" data-type="diversion"></a>
+                    <a class="index-map-tools-ic ic-ywgl" href="javascript:;" data-type="yunwei"></a>
+                    <a class="index-map-tools-ic ic-zdy" href="javascript:;" data-type="customize"></a>
+                    <a class="index-map-tools-ica ic-add" href="javascript:;"></a>
+                    <a class="index-map-tools-ica ic-less" href="javascript:;"></a>
+                </div>
+                <div class="index-map-bl">1F/5 Layer</div>
+                <div class="index-map-bm">
+                    <a href="javascript:;" class="ic-sxt"></a><a href="javascript:;" class="ic-ry"></a>
+                </div>
+                <div class="index-map-lt" id="map-lt">
+                    <img src="static/images/map.png" />
+                    <!--<img src="static/images/map-ht.png"/>-->
+                    <div class="index-map-ltht"></div>
+                    <a href="javascript:;" class="index-map-qh ic-qh" id="map-qh"></a>
+                </div>
+            </div>
+            <div class="clearfix mt-10">
+                <div class="main-panel index-charts">
+                    <i class="ic-rd ic-rd-lt"></i>
+                    <h2 class="main-panel-title2"><span>Yday / Today's Traffic Comparison</span></h2>
+                    <div class="index-charts-inner" id="echarts-1"></div>
+                </div>
+                <div class="main-panel index-charts ml-10">
+                    <i class="ic-rd ic-rd-rb"></i>
+                    <h2 class="main-panel-title2"><span>Turnover / Traffic Comparison</span></h2>
+                    <div class="index-charts-inner" id="echarts-2"></div>
+                </div>
+            </div>
+            <div class="clearfix mt-10">
+                <div class="main-panel index-charts index-charts-1">
+                    <i class="ic-rd ic-rd-lt"></i>
+                    <h2 class="main-panel-title2"><span>Parking Info</span></h2>
+                    <div class="pt-30 pl-10">
+                        <img src="static/images/temp/tmp-1.png" id="yycw"/>
+                    </div>
+                </div>
+                <div class="main-panel index-charts index-charts-2">
+                    <i class="ic-rd ic-rd-rb"></i>
+                    <h2 class="main-panel-title2"><span>Parking Saturation Peak</span></h2>
+                    <div class="index-charts-inner" id="echarts-3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="index-right main-panel">
+            <div class="index-video">
+                <i class="ic-rd ic-rd-lt"></i>
+                <i class="ic-rd ic-rd-rt"></i>
+                <h2 class="main-panel-title">Security Maintenance</h2>
+                <ul class="index-video-list clearfix">
+                    <li class="index-video-main">
+                        <img src="static/images/temp/tmp-v1.png"/>
+                        <a class="index-vdtag-item"><span>1</span>East Hall<i></i></a>
+                    </li>
+                    <li><img src="static/images/temp/tmp-v2.png"/></li>
+                    <li><img src="static/images/temp/tmp-v3.png"/></li>
+                    <li class="mr-10"><img src="static/images/temp/tmp-v4.png"/></li>
+                    <li class="mr-10"><img src="static/images/temp/tmp-v5.png"/></li>
+                    <li><img src="static/images/temp/tmp-v6.png"/></li>
+                </ul>
+                <div class="index-note" id="index-note">
+                    <ul>
+                        <li><a href="javascipt:;">Mall 1F/B Zone has items left behind, System notified to Security... </a></li>
+                        <li><a href="javascipt:;">Mall 2F/C Zone has garbage, System notified to Cleaning staff... </a></li>
+                        <li><a href="javascipt:;">Mall 3F/A Zone has fights，System notified to Security staff... </a></li>
+                        <li><a href="javascipt:;">Mall 4F/B Zone has steal money，System notified to Security staff... </a></li>
+                        <li><a href="javascipt:;">Mall 5F/B Zone has beauty，System notified to Security staff... </a></li>
+                    </ul>
+                </div>
+                <dl class="index-vdtag clearfix">
+                    <dt></dt>
+                    <dd class="clearfix" id="index-vdtag">
+                        <a class="index-vdtag-item" href="javascript:;"><span>1</span>East Hall<i></i></a>
+                        <a class="index-vdtag-item index-vdtag-itemcur" href="javascript:;"><span>2</span>Restaurant<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>3</span>Restaurant<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>4</span>West Hall<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>5</span>East Hall<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>6</span>Restaurant<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>7</span>East Hall<i></i></a>
+                        <a class="index-vdtag-item" href="javascript:;"><span>…</span>More...<i></i></a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="tab index-evts">
+                <ul class="tab-title clearfix">
+                    <li class="tab-cur">Pending (22)</li>
+                    <li>Completed (233)</li>
+                </ul>
+                <div class="tab-content tab-cur">
+                    <ul class="index-evts-list ui-scroll" id="example">
+                        <li><i class="ic-eye"></i><a href="javascript:;">View event: Someone is smoking at 12F B Zone...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">View event: Someone is smoking at 12F B Zone...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-ywgl"></i><a href="javascript:;">View event: Someone is smoking at 12F B Zone...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">View event: Someone is smoking at 12F B Zone...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">View event: Someone is smoking at 12F B Zone...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">View event: Someone is smoking at 12F B Zone...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">View event: Someone is smoking at 12F B Zone...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">View event: Someone is smoking at 12F B Zone...</a><span class="index-evts-date">2018/03/06</span></li>
+                        <li><i class="ic-eye"></i><a href="javascript:;">View event: Someone is smoking at 12F B Zone...</a><span class="index-evts-date">2018/03/06</span></li>
+                    </ul>
+                </div>
+                <div class="tab-content"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--dialog-->
+<div class="mask" id="dl-mask"></div>
+<div class="dialog dl-event" id="dl-events">
+    <h3 class="dl-title"></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content">
+        <table class="tb-form">
+            <tbody>
+                <tr>
+                    <th width="12%">Date</th>
+                    <td width="35%">2017/03/05 21:00</td>
+                    <th width="12%">Address</th>
+                    <td width="34%">1F~B Zone  2~4 Corridor</td>
+                </tr>
+                <tr>
+                    <th>Depart</th>
+                    <td>
+                        <select id="sel-bm">
+                            <option value="1">Operation Department Staff1</option>
+                            <option value="1">Operation Department Staff2</option>
+                            <option value="1">Operation Department Staff3</option>
+                            <option value="2">Security Department Staff1</option>
+                            <option value="2">Security Department Staff2</option>
+                            <option value="2">Security Department Staff3</option>
+                        </select>
+                    </td>
+                    <th>Time</th>
+                    <td>
+                        <select id="sel-sj">
+                            <option value="0">Immediate Execution</option>
+                            <option value="12">12:00</option>
+                            <option value="14">14:00</option>
+                            <option value="16">16:00</option>
+                            <option value="28">18:00</option>
+                            <option value="20">20:00</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Comment</th>
+                    <td colspan="3">
+                        <textarea class="form-area" id="dl-area"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dl-footer">
+        <a href="javascript:;" class="btn btn-dl" id="dl-save"></a>
+    </div>
+</div>
+
+<div class="dialog dl-customize" id="dl-customize">
+    <h3 class="dl-title"></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content clearfix">
+        <div class="dl-customize-lt">
+            <div class="index-map-img">
+                <canvas id="dl-map-img">The browser does not support canvas</canvas>
+                <div class="index-map-marks"></div>
+            </div>
+            <div class="dl-map-br">1F/5 Layer</div>
+            <div class="dl-map-tc" id="dl-ct">
+                <a href="javascript:;" class="ic-pos" data-type="path"></a><a href="javascript:;" class="ic-ry" data-type="person"></a>
+                <select id="sel-bma">
+                    <option value="1">Operation Department Staff1</option>
+                    <option value="1">Operation Department Staff2</option>
+                    <option value="1">Operation Department Staff3</option>
+                    <option value="2">Security Department Staff1</option>
+                    <option value="2">Security Department Staff2</option>
+                    <option value="2">Security Department Staff3</option>
+                </select>
+            </div>
+        </div>
+        <div class="dl-customize-rt">
+            <table class="tb-form">
+                <tbody>
+                <tr>
+                    <th width="24%">Release Time</th>
+                    <td width="70%">2017/03/05 21:00</td>
+                </tr>
+                <tr>
+                    <th>Task Name</th>
+                    <td>
+                        <input class="form-inp" type="text" id="zdy-title"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Execution Time</th>
+                    <td>
+                        <select id="sel-sja">
+                            <option value="2017/03/05" selected="selected">Immediate Execution</option>
+                            <option value="2017/03/05">12:00</option>
+                            <option value="2017/03/05">14:00</option>
+                            <option value="2017/03/05">16:00</option>
+                            <option value="2017/03/05">18:00</option>
+                            <option value="2017/03/05">20:00</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="tac">
+                        <textarea class="form-area" id="dl-carea"></textarea>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <a href="javascript:;" class="dl-customize-btn" id="dl-csave"></a>
+        </div>
+    </div>
+</div>
+
+<div class="dialog dl-customize dl-detail" id="dl-detail">
+    <h3 class="dl-title"><i class="dl-ic ic-dl-dl"></i>Custom Event</h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content clearfix">
+        <div class="dl-customize-lt">
+            <div class="index-map-img">
+                <canvas id="dl-detail-map">The browser does not support canvas</canvas>
+                <div class="index-map-marks index-map-marks-path index-map-marks-person"></div>
+            </div>
+            <div class="dl-map-br">1F/5 Layer</div>
+        </div>
+    </div>
+</div>
+
+<div class="dialog dl-sxt" id="dl-sxt">
+    <h3 class="dl-title"></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content clearfix">
+
+    </div>
+</div>
+
+<div class="dialog dl-yycw" id="dl-yycw">
+    <h3 class="dl-title"></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content clearfix">
+        <table class="tb-a">
+            <thead>
+                <tr>
+                    <th>Owner Name</th>
+                    <th>License Plate</th>
+                    <th>Reserved Parking</th>
+                    <th>Appoint Time</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+                <tr>
+                    <td>Alex</td>
+                    <td>RD3073K</td>
+                    <td>3021 12F C Zone</td>
+                    <td>10:30~24:30</td>
+                    <td>138000051352</td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="dialog dl-customize dl-tjsp" id="dl-tjsp">
+    <h3 class="dl-title"></h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content clearfix">
+        <div class="dl-customize-lt">
+            <div class="index-map-img">
+                <canvas id="map-img-tjsp">The browser does not support canvas</canvas>
+                <div class="index-map-marks index-map-marks-camera"></div>
+            </div>
+            <div class="dl-map-br">1F/5 Layer</div>
+            <div class="index-map-bm">
+                <a href="javascript:;" class="ic-sxt cur"></a><a href="javascript:;" class="ic-ry"></a>
+            </div>
+        </div>
+        <div class="dl-customize-rt">
+            <ul id="device-list" class="device-list ui-scroll mt-5">
+                <li class="device-list-item"><dl><dt class="device-list-item-title"><i class="ic-total"></i>—<i class="ic-camera-1 mr-5"></i><span class="vam">3rd Floor Device</span></dt><div class="item-concrete-wrapper"><div class="device-list-item-concrete" style="display:none;"><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd><dd><i class="ic-camera-2 mr-5"></i>3014~3030</dd></div></div></dl></li>
+                <li class="device-list-item"><dl><dt class="device-list-item-title"><i class="ic-total"></i>—<i class="ic-camera-1 mr-5"></i><span class="vam">4th Floor Device</span></dt><div class="item-concrete-wrapper"><div class="device-list-item-concrete" style="display:none;"><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd><dd><i class="ic-camera-2 mr-5"></i>4014~4030</dd></div></div></dl></li>
+                <li class="device-list-item"><dl><dt class="device-list-item-title"><i class="ic-total"></i>—<i class="ic-camera-1 mr-5"></i><span class="vam">6th Floor Device</span></dt><div class="item-concrete-wrapper last"><div class="device-list-item-concrete" style="display:none;"><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd><dd><i class="ic-camera-2 mr-5"></i>6014~6030</dd></div></div></dl></li>
+            </ul>
+        </div>
+        <dl class="index-vdtag clearfix">
+            <dt></dt>
+            <dd class="clearfix" id="dl-index-vdtag">
+                <a class="index-vdtag-item" href="javascript:;"><span>1</span>East Hall<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>2</span>Restaurant<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>3</span>Restaurant<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>4</span>West Hall<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>5</span>East Hall<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>6</span>Restaurant<i class="ic-del"></i></a>
+                <a class="index-vdtag-item" href="javascript:;"><span>7</span>East Hall<i class="ic-del"></i></a>
+                <a class="index-vdtag-item ic-add" href="javascript:;"></a>
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<script src="static/lib/jquery-3.2.1.min.js"></script>
+<script src="static/lib/heatmap.js"></script>
+<script src="static/lib/echarts.min.js"></script>
+<script src="static/js/common/jquery.scroll.js"></script>
+<script src="static/js/common/jquery.dropselect.js"></script>
+<script src="static/js/common/jquery.smartmap.js"></script>
+<script>
+
+var main = {
+    htdata: [
+        {x: 230, y: 1155, w: 55, h: 50, le: 10}, {x: 331, y: 1090, w: 70, h: 55, le: 20}, {x: 395, y: 1115, w: 60, h: 25, le: 5},
+        {x: 420, y: 730, w: 90, h: 100, le: 20}, {x: 550, y: 720, w: 90, h: 90, le: 30}, {x: 210, y: 640, w: 130, h: 60, le: 40}
+    ],
+    init: function(){
+        //map.init();
+        main.dfhdt = main.gethtdata();
+        $('#index-map-img').smartmap({
+            htdata: main.dfhdt,
+            htmax: 20
+        });
+        $('#dl-map-img').smartmap();
+        $('#dl-detail-map').smartmap();
+        $('#map-img-tjsp').smartmap();
+        setTimeout(function(){
+            var $mp = $('#index-map-img').data('smartmap'), $dlmp = $('#dl-map-img').data('smartmap'),
+                    $dldt = $('#dl-detail-map').data('smartmap'), $dlxst = $('#map-img-tjsp').data('smartmap');
+            $.each(main.expdata.person, function(n, ite){
+                $mp.addMark('person', 'person', ite.x, ite.y, ite.data);
+                //$dlmp.addMark('person', 'person', ite.x, ite.y, ite.data);
+                //$dldt.addMark('person', 'person', ite.x, ite.y, ite.data);
+            });
+            $.each(main.expdata.camera, function(n, ite){
+                $mp.addMark('camera', 'camera' + ite.status, ite.x, ite.y, {}, function(){
+                    main.dialog($('#dl-sxt'));
+                });
+                $dlxst.addMark('camera', 'camera' + ite.status, ite.x, ite.y, {}, function(){
+                    //main.dialog($('#dl-sxt'));
+                });
+            });
+
+            setInterval(function(){
+                $mp.sethtdata(main.sethtdata());
+            }, 50);
+        }, 10);
+        main.chartsInit();
+        main.uiBind();
+    },
+    gethtdata: function(){
+        var htar = [], max = 20;
+        $.each(main.htdata, function(i, o){
+            var ox = o.x, oy = o.y, le = o.le, k = 0, w = o.w, h = o.h;
+            for(; k < le; k++){
+                htar.push({x: ox + Math.floor(w * Math.random()), y: oy + Math.floor(h * Math.random()), value: Math.floor(max * Math.random()) + 1});
+            }
+        });
+        return htar;
+    },
+    sethtdata: function(){
+        var htar = [];
+        $.each(main.dfhdt, function(i, o){
+            var rd = Math.random(), m = rd > .5 ? 1 : -1;
+            htar.push({x: o.x + m, y: o.y + m, value: o.value});
+        });
+        main.dfhdt = htar;
+        return htar;
+    },
+    chartsInit: function(){
+        // 初始化echarts实例
+        var myChart = echarts.init($('#echarts-1')[0]);
+
+        // 指定图表的配置项和数据
+        var option = {
+            textStyle: {
+                color: '#009bd2',
+                fontSize: '12px'
+            },
+            tooltip : {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'line',//cross
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                data:[
+                    {name: 'Today', icon: 'rect', textStyle: {color: '#009bd2', fontSize: '10px'}},
+                    {name: 'Yday', icon: 'rect', textStyle: {color: '#009bd2', fontSize: '10px'}}
+                ],
+                orient: 'vertical',
+                right: '0',
+                itemWidth: 12,
+                itemHeight: 8,
+                itemGap: 2
+            },
+            grid: {
+                show: true,
+                left: '3%',
+                right: '3%',
+                bottom: '3%',
+                top: '22%',
+                borderWidth: 1,
+                borderColor: '#145fac',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                data: ['10','11','12','13','14','15','16','17','18','19','20',"21","22","(hr)"],
+                boundaryGap: false,
+                splitLine: {
+                    show: true,
+                    interval: 'auto',
+                    lineStyle: {
+                        color: ['#145fac']//0a3f78
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {color: '#215984'}//609ee9
+                }
+            },
+            yAxis: {
+                type: 'value',
+                splitLine: {
+                    lineStyle: {color: ['#145fac']}
+                },
+                axisLine: {
+                    lineStyle: {color: '#009bd2'}
+                }
+            },
+            series: [{
+                name: 'Today',
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
+                symbol: 'circle',
+                symbolSize: 6,
+                lineStyle: {
+                    normal: {color: '#7cb1e0', width:1}
+                },
+                areaStyle: {normal: {color: '#2751a3'}},
+                data: ['1200', '1400', '1008', '1411', '1026', '1288', '1300', '800', '1100', '1000', '1118', '1322', '1122', '1002'],
+                itemStyle: {
+                    normal: {color: '#2751a3'}
+                }
+            }, {
+                name: 'Yday',
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
+                symbol: 'circle',
+                symbolSize: 6,
+                data: ['1100', '1300', '808', '811', '626', '488', '1200', '600', '500', '300', '998', '822', '744', '600'],
+                areaStyle: {
+                    normal: {color: '#0e327f'}
+                },
+                itemStyle: {
+                    normal: {color: '#0e327f'}
+                },
+                lineStyle: {
+                    normal: {color: '#184fb3', width: 1}
+                }
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+        echarts.init($('#echarts-2')[0]).setOption({
+            textStyle: {
+                color: '#009bd2',
+                fontSize: '12px'
+            },
+            tooltip : {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'line',//cross
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                data:[
+                    {name: 'Growth', icon: 'rect', textStyle: {color: '#009bd2', fontSize: '10px'}},
+                    {name: 'Sales', icon: 'rect', textStyle: {color: '#009bd2', fontSize: '10px'}}
+                ],
+                orient: 'vertical',
+                right: '0',
+                itemWidth: 12,
+                itemHeight: 8,
+                itemGap: 2
+            },
+            grid: {
+                show: true,
+                left: '3%',
+                right: '3%',
+                bottom: '3%',
+                top: '22%',
+                borderWidth: 1,
+                borderColor: '#0a3f78',
+                containLabel: true
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['10','11','12','13','14','15','16','17','18','19','20',"21","22","(hr)"],
+                boundaryGap: false,
+                splitLine: {
+                    show: true,
+                    interval: 'auto',
+                    lineStyle: {
+                        color: ['#145fac']//0a3f78
+                    }
+                },
+                axisTick: {
+                    show: false,
+                    alignWithLabel: true
+                },
+                axisLine: {
+                    lineStyle: {color: '#215984'}//609ee9
+                }
+            }],
+            yAxis: [{
+                type: 'value',
+                name: '(Day/THS)',
+                position: 'right',
+                splitLine: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {color: '#009bd2'}
+                }
+            }, {
+                type: 'value',
+                name: '(People/THS)',
+                position: 'left',
+                splitLine: {
+                    lineStyle: {color: ['#145fac']}
+                },
+                axisLine: {
+                    lineStyle: {color: '#009bd2'}
+                }
+            }],
+            series: [{
+                name: 'Traffic',
+                type: 'line',
+                stack: 'gross',
+                lineStyle: {
+                    normal: {color: '#7cb1e0', width:1}
+                },
+                z: 1,
+                showSymbol: false,
+                data: [1, 3, 2, 3, 3, 6, 8, 8, 9, 4, 6, 4, 2, 1]
+            }, {
+                name: 'Turnover',
+                type: 'bar',
+                yAxisIndex: 1,
+                z: 2,
+                stack: 'Gross',
+                barWidth: 15,
+                itemStyle: {
+                    normal: {color: '#2751a3'}
+                },
+                data: [2, 4, 3, 5, 6, 8, 9, 6, 7, 5, 8, 5, 3, 1]
+            }]
+        });
+
+        echarts.init($('#echarts-3')[0]).setOption({
+            textStyle: {
+                color: '#009bd2',
+                fontSize: '12px'
+            },
+            tooltip : {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',//cross
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                show: false
+            },
+            grid: {
+                show: true,
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                top: '22%',
+                borderWidth: 1,
+                borderColor: '#145fac',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                data: ['00:00','03:00','06:00','09:00','12:00','15:00','18:00','21:00','24:00'],
+                boundaryGap: false,
+                splitLine: {
+                    show: true,
+                    interval: 'auto',
+                    lineStyle: {
+                        color: ['#145fac']//0a3f78
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {color: '#215984'}//609ee9
+                }
+            },
+            yAxis: {
+                type: 'value',
+                name: '(Parking)',
+                splitLine: {
+                    lineStyle: {color: ['#145fac']}
+                },
+                axisLine: {
+                    lineStyle: {color: '#009bd2'}
+                }
+            },
+            series: [{
+                name: 'Today',
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
+                symbol: 'circle',
+                symbolSize: 6,
+                lineStyle: {
+                    normal: {color: '#7cb1e0', width:1}
+                },
+                areaStyle: {normal: {color: '#2751a3'}},
+                data: ['12', '30', '40', '100', '180', '380', '300', '250', '80'],
+                itemStyle: {
+                    normal: {color: '#2751a3'}
+                }
+            }]
+        });
+    },
+    dialog: function($t){
+        $('#dl-mask').show();
+        $t.show();
+        $t.children('.dl-close').off().on('click', function(){
+            main.dialogClose($t);
+        });
+    },
+    dialogClose: function($t){
+        $('#dl-mask').hide();
+        $t.hide();
+    },
+    evdialog: function(ty, $mk){
+        var $d = $('#dl-events'), $dlar = $('#dl-area'), txt = '', obj = {
+            'view': '<i class="dl-ic ic-dl-dl"></i>View Event<strong class="ml-10 fw-b fc-white">VIEW</strong>',
+            'diversion': '<i class="dl-ic ic-dl-dl"></i>Training Event<strong class="ml-10 fw-b fc-white">TRAFFIC GROOMING</strong>',
+            'yunwei': '<i class="dl-ic ic-dl-dl"></i>Operational Event<strong class="ml-10 fw-b fc-white">MAINTENANCE</strong>',
+            'customize': '<i class="dl-ic ic-dl-dl"></i>Custom Event<strong class="ml-10 fw-b fc-white">CUSTOMIZE</strong>'
+        };
+        if(ty === 'customize'){
+            $d = $('#dl-customize');
+            $dlar = $('#dl-carea');
+        }
+        $d.children('.dl-title').html(obj[ty]);
+        if($mk){
+            txt = $mk.find('.index-map-info-ct').text();
+            $d.data('mk', $mk);
+        }else{
+            $d.data('mk', '');
+        }
+        $dlar.val(txt);
+        main.dialog($d);
+    },
+    randm: function(ty){
+        var len = 3, obj = {
+            'view': [{name: 'View', status: 'Pending'}, {name: 'View', status: 'Pending'}, {name: 'View', status: 'Completed'}],
+            'diversion': [{name: 'Alex1', status: 'Pending'}, {name: 'Alex2', status: 'Completed'}, {name: 'Alex3', status: 'Completed'}],
+            'yunwei': [{name: 'Elen1', status: 'Pending'}, {name: 'Elen2', status: '已处理'}, {name: 'Elen3', status: 'Completed'}],
+            'customize': [{name: 'View', status: 'Pending'}, {name: 'View', status: 'Pending'}, {name: 'View', status: 'Completed'}]
+        };
+        return obj[ty][Math.floor(Math.random()*len)];
+    },
+    expdata: {
+        person: [
+            {
+                x: 340, y: 1106, data: {
+                    info: {
+                        content: "Patrolling...",
+                        name: "Security Staff A",
+                        status: "Pending",
+                        ifbtn: 'Edit'
+                    }
+                }
+            },
+            {
+                x: 290, y: 1100, data: {
+                    info: {
+                        content: "Sleeping...",
+                        name: "Security Staff B",
+                        status: "Pending",
+                        ifbtn: 'Edit'
+                    }
+                }
+            },
+            {
+                x: 420, y: 1080, data: {
+                    info: {
+                        content: "chatting...",
+                        name: "Security StaffC",
+                        status: "Pending",
+                        ifbtn: 'Edit'
+                    }
+                }
+            }
+        ],
+        camera: [{x: 303, y: 1000, status: 'n'}, {x: 333, y: 1100, status: 'b'}, {x: 403, y: 1000, status: 'a'}, {x: 353, y: 1200, status: 'n'}, {x: 323, y: 1190, status: 'n'}]
+    },
+    uiBind: function(){
+        var map = $('#index-map-img').data('smartmap'), $dlmp = $('#dl-map-img').data('smartmap'),
+                $dldt = $('#dl-detail-map').data('smartmap');
+
+        $('#sel-bm, #sel-bma, #sel-sj, #sel-sja').dropselect();
+
+        $('#dl-save, #dl-csave').on('click', function(){
+            var $bt = $('.index-map-tools-icsel'),
+                    $dlar = $('#dl-area'), $d = $('#dl-events'), ty = map.evdata.ty;
+            //if($bt.length === 0) return;
+            if(ty === 'customize'){
+                $d = $('#dl-customize');
+                $dlar = $('#dl-carea');
+                var tle = $('#zdy-title').val() || '未知事件', sj = '2017/05/05';
+                $('#example').prepend('<li><i class="ic-eye"></i><a href="javascript:;">' + tle + '</a><span class="index-evts-date">' + sj + '</span></li>');
+            }
+            if($d.data('mk')){
+                $d.data('mk').find('.index-map-info-ct').text($dlar.val() || '事件为空');
+            }else{
+                var dt = $.extend(main.randm(ty), {content: $dlar.val() || '事件为空'});
+                map.addMark('events', ty, map.evdata.x, map.evdata.y, {info: dt});
+            }
+
+            main.dialogClose($d);
+        });
+
+        $('#map-qh').on('click', function(){
+            var map = $('#index-map-img').data('smartmap'), imgs = $('#map-lt > img');
+            /*imgs.toggle();
+            setTimeout(function(){
+                map.loadmap(imgs.filter(':hidden')[0]);
+            }, 0);*/
+            var $ht = $('.index-map-ht'), $lht = $('.index-map-ltht');
+            if($ht.css('visibility') == 'hidden'){
+                $ht.css('visibility', 'visible');
+                $lht.css('visibility', 'hidden');
+            }else{
+                $ht.css('visibility', 'hidden');
+                $lht.css('visibility', 'visible');
+            }
+        });
+
+        $('#index-note').scrolltxt();
+
+        $('#dl-ct > a[data-type]').on('click', function(){
+            var $t = $(this), ct = $t.attr('data-type');
+            $dlmp.marks.attr('class', 'index-map-marks index-map-marks-path index-map-marks-person');
+            $t.toggleClass('index-map-tools-icsel').siblings('.index-map-tools-icsel').removeClass('index-map-tools-icsel');
+        });
+
+        $('#example').delegate("li","click",function(){
+            $dldt.clearMark();
+            $dlmp.marks.children().each(function(){
+                var $mk = $(this), category = $mk.attr('data-category'),
+                    x = $mk.data('mkx'),
+                    y = $mk.data('mky'),
+                    data = $mk.data('mkdt');
+
+                $dldt.evdata = {ty: category, x: x, y: y};
+
+                if(category === 'path'){
+                    $dldt.ctx.lineWidth = '2';
+                    $dldt.ctx.strokeStyle = '#009ad8';
+                    if($dldt.pathar){
+                        $dldt.pathar.push({ty: category, x: x, y: y});
+                    }else{
+                        $dldt.pathar = [{ty: category, x: x, y: y}];
+                    }
+                    $dldt.addPath();
+                }else{
+                    $dldt.addMark(category, category, x, y, data);
+                }
+            });
+            main.dialog($('#dl-detail'));
+        });
+
+        $('#yycw').click(function(){
+            main.dialog($('#dl-yycw'));
+        });
+
+        $("#device-list .device-list-item-title").click(function(){
+            $(this).parents(".device-list-item").find(".device-list-item-concrete").toggle();
+        });
+        $(".device-list-title-item").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+
+        $('#index-vdtag > a').click(function(){
+            main.dialog($('#dl-tjsp'));
+        });
+    }
+};
+
+$(function(){
+    main.init();
+});
+</script>
+</body>
+</html>

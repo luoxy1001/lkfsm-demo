@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>lkf-SmartCenter</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+<header class="haeder clearfix">
+    <a href="index.html" class="haeder-h1"></a>
+    <ul class="header-nav">
+        <li><a href="supervisionCenter.html">Supervision Center</a></li>
+        <li><a href="bmchart.html">Merchant Management</a></li>
+        <li><a href="javascript:;">Power Management</a></li>
+        <li><a href="systemManage.html">Role Management</a></li>
+    </ul>
+    <div class="header-user">
+        <a href="javascript:;" class="ic-user">Dave</a>
+        <a href="javascript:;">Logout</a>
+    </div>
+</header>
+<div class="manage-title">
+  <ul id="manage-title" class="wrap manage-wrap clearfix">    
+      <li class="manage-item pull-left first ml-30 active"><span class="manage-item-content">User Management</span></li>
+      <li class="manage-item pull-left"><span class="manage-item-content">Role Management</span></li>    
+  </ul>
+</div>
+<section class="wrap manage-wrap">
+    <div id="manage-content" class="manage-content pt-25 clearfix">
+        <a id="system-add-user-btn" class="system-user-btn pull-left" href="javascript:;">Add Merchant</a>
+        <a id="system-del-user-btn" class="system-user-btn pull-left" href="javascript:;">Bulk Deletion</a>
+        <span class="mana-search-warpper vam"><input class="mana-search" type="text" name="" placeholder="Contacts Information/User Name"></span>
+    </div>
+
+    <div id="manage-content-1" class="manage-content pt-25 clearfix">
+        <a id="system-add-user-btn-1" class="system-user-btn pull-left" href="javascript:;">Add Role</a>
+    </div>
+
+    <table id="system-mana-user-table" class="system-mana-table">
+      <thead>
+        <th class="user-column-1" colspan="2">User Name</th>
+        <th class="user-column-2">Role</th>
+        <th class="user-column-3">Contacts Information</th>
+        <th class="user-column-4">Latest Login Date</th>
+        <th class="user-column-5">Latest Modify Date</th>
+        <th class="user-column-6">Operations</th>
+      </thead>
+      <tbody>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Tom</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>        
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Jason</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>       
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">John</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>        
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Helen</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>        
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Nancy</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>      
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Linda</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>       
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Lyn</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>        
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Lee</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>       
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">David</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>      
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">July</td>
+          <td class="user-column-3">General User</td>
+          <td class="user-column-4">063-203546153</td>
+          <td class="user-column-5">2016-11-12    03:26</td>
+          <td class="user-column-6">2016-11-20   03:26</td>
+          <td class="user-column-7"><a class="mr-10" href="javascript:;">Change Password</a><a href="javascript:;">Edit Profile</a></td>        
+        </tr>
+        <tr class="user-row-select-all"><td class="user-column-1 text-center"><i id="ic-select-all" class="ic-select-all ic-select mt-10"></i></td><td class="user-column-2"><a class="user-delete-btn mt-10" href="javascript:;">Delete</a></td></tr>
+      </tbody>
+    </table>
+    <div id="page" class="page"></div>
+    <ul id="system-mana-activity-table" class="system-mana-table" style="display:none;">
+      <li class="system-mana-item mb-15">
+         <h1 class="system-mana-title"><i class="ic-com-user mr-10"></i>General User<a class="system-user-btn pull-right mt-15" href="javascript:;">Submit</a><a class="system-user-btn pull-right mt-15" href="javascript:;">Cancel</a></h1>
+         <ul class="system-mana-inner-list clearfix">
+           <li class="system-mana-inner-item">
+             <dl>
+               <dd class="mb-15 clearfix">&nbsp;Statistics Suite<i class="ic-select-all ic-select pull-right mr-5 mt-15"></i></dd>   
+               <dt>&nbsp;Footfall Statistics<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+               <dt>&nbsp;Buyer Statistics<i class="ic-select pull-right mr-5 mt-15"></i></dt>     
+               <dt>&nbsp;Products & Services<i class="ic-select pull-right mr-5 mt-15"></i></dt>       
+               <dt>&nbsp;Real-time Alerts<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+             </dl>
+           </li>
+           <li class="system-mana-inner-item">
+             <dl>
+               <dd class="mb-15 clearfix">&nbsp;Analytics Suite<i class="ic-select-all ic-select pull-right mr-5 mt-15"></i></dd>   
+               <dt>&nbsp;Buyer Analytics<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+               <dt>&nbsp;Products & Services Analytics<i class="ic-select pull-right mr-5 mt-15"></i></dt>     
+               <dt>&nbsp;Advertising Analytics<i class="ic-select pull-right mr-5 mt-15"></i></dt>       
+               <dt>&nbsp;Real-time Alerts<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+             </dl>
+           </li>
+           <li class="system-mana-inner-item">
+             <dl>
+               <dd class="mb-15 clearfix">&nbsp;Advertising Suite<i class="ic-select-all ic-select pull-right mr-5 mt-15"></i></dd>   
+               <dt>&nbsp;Ads Placement<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+               <dt>&nbsp;Priority Placement<i class="ic-select pull-right mr-5 mt-15"></i></dt>     
+               <dt>&nbsp;Low-traffic Promotion<i class="ic-select pull-right mr-5 mt-15"></i></dt>       
+               <dt>&nbsp; <!-- Alarm Setting<i class="ic-select pull-right mr-5 mt-15"></i> --> </dt>
+             </dl>
+           </li>
+           <li class="system-mana-inner-item">
+             <dl>
+               <dd class="mb-15 clearfix">&nbsp;BIMS Suite<i class="ic-select-all ic-select pull-right mr-5 mt-15"></i></dd>   
+               <dt>&nbsp;Dynamic Lightings<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+               <dt>&nbsp;Dynamic Air-Conditioning<i class="ic-select pull-right mr-5 mt-15"></i></dt>     
+               <dt>&nbsp;VIP Parking<i class="ic-select pull-right mr-5 mt-15"></i></dt>       
+               <dt>&nbsp;Real-time Alerts<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+             </dl>
+           </li>
+         </ul>
+      </li>
+      <li class="system-mana-item">
+         <h1 class="system-mana-title"><i class="ic-com-user mr-10"></i>Admin<a class="system-user-btn pull-right mt-15" href="javascript:;">Edit</a></h1>
+         <ul class="system-mana-inner-list clearfix">
+           <li class="system-mana-inner-item">
+             <dl>
+               <dd class="mb-15 clearfix">&nbsp;Product Management<i class="ic-select-all ic-select pull-right mr-5 mt-15"></i></dd>   
+               <dt>&nbsp;Product Management<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+               <dt>&nbsp;Area Supervision<i class="ic-select pull-right mr-5 mt-15"></i></dt>     
+               <dt>&nbsp;Data Analysis<i class="ic-select pull-right mr-5 mt-15"></i></dt>       
+               <dt>&nbsp;Alarm Setting<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+             </dl>
+           </li>
+           <li class="system-mana-inner-item">
+             <dl>
+               <dd class="mb-15 clearfix">&nbsp;Product Management<i class="ic-select-all ic-select pull-right mr-5 mt-15"></i></dd>   
+               <dt>&nbsp;Product Management<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+               <dt>&nbsp;Area Supervision<i class="ic-select pull-right mr-5 mt-15"></i></dt>     
+               <dt>&nbsp;Data Analysis<i class="ic-select pull-right mr-5 mt-15"></i></dt>       
+               <dt>&nbsp;Alarm Setting<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+             </dl>
+           </li>
+           <li class="system-mana-inner-item">
+             <dl>
+               <dd class="mb-15 clearfix">&nbsp;Product Management<i class="ic-select-all ic-select pull-right mr-5 mt-15"></i></dd>   
+               <dt>&nbsp;Product Management<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+               <dt>&nbsp;Area Supervision<i class="ic-select pull-right mr-5 mt-15"></i></dt>     
+               <dt>&nbsp;Data Analysis<i class="ic-select pull-right mr-5 mt-15"></i></dt>       
+               <dt>&nbsp;Alarm Setting<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+             </dl>
+           </li>
+           <li class="system-mana-inner-item">
+             <dl>
+               <dd class="mb-15 clearfix">&nbsp;Product Management<i class="ic-select-all ic-select pull-right mr-5 mt-15"></i></dd>   
+               <dt>&nbsp;Product Management<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+               <dt>&nbsp;Area Supervision<i class="ic-select pull-right mr-5 mt-15"></i></dt>     
+               <dt>&nbsp;Data Analysis<i class="ic-select pull-right mr-5 mt-15"></i></dt>       
+               <dt>&nbsp;Alarm Setting<i class="ic-select pull-right mr-5 mt-15"></i></dt>
+             </dl>
+           </li>
+         </ul>
+      </li>
+    </ul>
+</section>
+<!--dialog-->
+<div class="mask" id="dl-mask"></div>
+<div class="dialog dl-event" id="dl-dl">
+    <h3 class="dl-title"><i class="dl-ic ic-add-user"></i>Add Merchant</h3>
+    <a class="dl-close" href="javascript:main.dialogClose($('#dl-dl'));"></a>
+    <div class="dl-content au-content">
+      <div class="mb-20">
+          <span class="add-user-item">Merchant Name</span>
+          <input class="add-user-inp mr-15" type="text" name="">
+          <span class="add-user-item">Contact Information</span>
+          <input class="add-user-inp mr-15" type="text" name="">       
+      </div>
+      <div class="mb-20">
+          <span class="add-user-item">Principal</span>
+          <input class="add-user-inp mr-15" type="text" name="">
+          <span class="add-user-item">Category</span>
+          <select id="sel-industry" class="mr-15 sel-industry">
+              <option value="0">Costume</option>
+              <option value="12">Finance</option>
+              <option value="14">IT</option>
+              <option value="16">Manufacture</option>
+          </select>        
+      </div>
+      <div>
+          <span class="add-user-item">Address</span>
+          <input type="text" class="add-user-form-area"/>
+      </div>
+    </div>
+    <div class="dl-foote add-user-footer">
+        <a href="javascript:main.dialogClose($('#dl-dl'));" class="btn btn-add-uer"></a>
+    </div>
+</div>
+
+<div class="dialog dl-event" id="dl-dl-1">
+    <h3 class="dl-title"><i class="dl-ic ic-add-user"></i>Add Role</h3>
+    <a class="dl-close" href="javascript:main.dialogClose($('#dl-dl-1'));"></a>
+    <div class="dl-content au-content">
+      <div class="mb-20">
+          <span class="add-user-item">Role Name</span>
+          <input class="add-user-form-area" type="text" name="">  
+      </div>
+      <div class="mb-20">
+          <span class="add-user-item">Resource Category</span>
+          <select id="sel-industry-1" class="mr-15 sel-industry">
+              <option value="0">Statistics Suite</option>
+              <option value="12">Analytics Suite</option>
+              <option value="14">Advertising Suite</option>
+              <option value="16"> BIMS Suite</option>
+              <option value="0">Product Management</option>
+          </select>      
+          <span class="add-user-item">Specific Resource</span>
+          <select id="sel-industry-2" class="mr-15 sel-industry">
+              <option value="0">Footfall Statistics</option>
+              <option value="12">Buyer Statistics</option>
+              <option value="14">Products & Services</option>
+              <option value="16">Real-time Alerts</option>
+          </select>        
+      </div>
+      <div>
+          <span class="add-user-item">Comment</span>
+          <input type="text" class="add-user-form-area"/>
+      </div>
+    </div>
+    <div class="dl-foote add-user-footer">
+        <a href="javascript:main.dialogClose($('#dl-dl'));" class="btn btn-add-uer"></a>
+    </div>
+</div>
+
+
+<script src="static/lib/jquery-3.2.1.min.js"></script>
+<script src="static/js/common/jquery.dropselect.js"></script>
+<script>
+var main = {
+    init: function(){
+       $("#manage-content-1").hide();
+        main.uiBind();
+    },
+    dialog: function($t){
+        $('#dl-mask').show();
+        $t.show();
+    },
+    uiBind: function(){
+        $('#industry, #floor').dropselect({
+          width : 125,
+          panelwidth : 188
+        }); 
+        var $tables = $(".system-mana-table")
+        $("li.manage-item").each(function(index){
+          $(this).click(function(){
+            if(index === 0){
+              $("#manage-content,#page").show();
+               $("#manage-content-1").hide();
+            }else{
+              $("#manage-content,#page").hide();
+              $("#manage-content-1").show();
+            }
+            $(this).addClass("active").siblings().removeClass("active");
+            $tables.eq(index).show().siblings(".system-mana-table").hide();
+          })
+        });
+        $("#system-add-user-btn").click(function(){
+            main.dialog($('#dl-dl'));
+        });
+        $("#system-add-user-btn-1").click(function(){
+            main.dialog($('#dl-dl-1'));
+        });
+        $('#sel-industry').dropselect({
+            panelwidth : 160,
+            width: 123
+        });
+         $('#sel-industry-1').dropselect({
+            panelwidth : 160,
+            width: 123
+        });
+         $('#sel-industry-2').dropselect({
+            panelwidth : 160,
+            width: 123
+        });
+        $(".ic-select").not(".ic-select-all").click(function(){
+            $(this).toggleClass("active");
+        });
+        $("#ic-select-all").click(function(){
+            main.isSelectAll($(this),$("#system-mana-user-table .ic-select"))
+        });
+        $("#system-mana-activity-table .ic-select-all").click(function(){
+            main.isSelectAll($(this),$(this).parents(".system-mana-inner-item").find(".ic-select"))
+        });
+    },
+    isSelectAll : function($obj , $isSelect){
+        $obj.toggleClass("active");
+        if($obj.hasClass("active")){
+          $isSelect.addClass("active");
+        }else{
+          $isSelect.removeClass("active");
+        }   
+    },
+    dialogClose: function($t){
+        $('#dl-mask').hide();
+        $t.hide();
+    }
+};
+
+$(function(){
+    main.init();
+});
+</script>
+</body>
+</html>

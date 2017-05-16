@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>lkf-SmartCenter</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+<header class="haeder clearfix">
+    <a href="index.html" class="haeder-h1"></a>
+    <ul class="header-nav">
+        <li><a href="supervisionCenter.html">Supervision Center</a></li>
+        <li><a href="bmchart.html">Merchant Management</a></li>
+        <li><a href="javascript:;">Power Management</a></li>
+        <li><a href="systemManage.html">Role Management</a></li>
+    </ul>
+    <div class="header-user">
+        <a href="javascript:;" class="ic-user">Dave</a>
+        <a href="javascript:;">Logout</a>
+    </div>
+</header>
+<div class="manage-title">
+  <ul id="manage-title" class="wrap manage-wrap clearfix">    
+      <li class="manage-item pull-left first ml-30"><a class="manage-item-content" href="businessManage.html">Merchant's Information</a></li>
+      <li class="manage-item pull-left"><a class="manage-item-content" href="businessManage.html#hd">Promotional Events</a></li>
+  </ul>
+</div>
+<section class="wrap manage-wrap">
+    <div class="bmchart">
+        <div class="bmchart-title clearfix">
+            <div class="pull-right"><img src="static/images/week.png"></div>
+            <h2>Consumption </h2>
+            <span>Peak Period</span>
+        </div>
+        <div class="bmchart-1" id="bmchart-1"></div>
+
+        <div class="bmchart-title clearfix mt-10">
+            <div class="pull-right bmchart-tm">Time Horizon:2014/10/28-2014/11/26</div>
+            <h2>Population Subdivision</h2>
+            <span>Nearest Consumer groups Distributed</span>
+        </div>
+        <ul class="bmchart-2 clearfix mt-10">
+            <li>
+                <h3>Gender</h3>
+                <img src="static/images/temp/bmchart-01.png"/>
+            </li>
+            <li>
+                <h3>Age</h3>
+                <img src="static/images/temp/bmchart-02.png"/>
+            </li>
+            <li>
+                <h3>Status</h3>
+                <img src="static/images/temp/bmchart-03.png"/>
+            </li>
+            <li>
+                <h3>Buyer Level</h3>
+                <img src="static/images/temp/bmchart-04.png"/>
+            </li>
+            <li>
+                <h3>Consumption level</h3>
+                <img src="static/images/temp/bmchart-05.png"/>
+            </li>
+            <li>
+                <h3>Target Group Index（TGI）</h3>
+                <img src="static/images/temp/bmchart-06.png"/>
+            </li>
+        </ul>
+
+
+        <div class="bmchart-2 bmchart-3 clearfix mt-30">
+            <div class="bmchart-title clearfix">
+                <div class="pull-right">Low <img src="static/images/temp/bmchart-07.png" class="vam"/> High</div>
+                <h2>Crowd Proportion</h2>
+            </div>
+            <ul class="bmchart-3-ul clearfix">
+                <li class="bmchart-3-1">
+                    <h4>Age VS Gender/Consumption level</h4>
+                    <img src="static/images/temp/bmchart-10.png"/>
+                </li>
+                <li class="bmchart-3-2">
+                    <h4>Ggender VS Constellation</h4>
+                    <img src="static/images/temp/bmchart-08.png"/>
+                </li>
+                <li class="bmchart-3-3">
+                    <h4>Gender VS Consumption level</h4>
+                    <img src="static/images/temp/bmchart-09.png"/>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+<!--dialog-->
+<div class="mask" id="dl-mask"></div>
+<div class="dialog dl-event" id="dl-dl">
+    <h3 class="dl-title"><i class="dl-ic ic-add-user"></i>添加商户名单</h3>
+    <a class="dl-close" href="javascript:;"></a>
+    <div class="dl-content au-content">
+      <div class="mb-20">
+          <span class="add-user-item">商户名称</span>
+          <input class="add-user-inp mr-15" type="text" name="">
+          <span class="add-user-item">联系方式</span>
+          <input class="add-user-inp mr-15" type="text" name="">       
+      </div>
+      <div class="mb-20">
+          <span class="add-user-item">负责人</span>
+          <input class="add-user-inp mr-15" type="text" name="">
+          <span class="add-user-item">行业类别</span>
+          <select id="sel-industry" class="mr-15 sel-industry">
+              <option value="0">服饰</option>
+              <option value="12">金融</option>
+              <option value="14">互联网</option>
+              <option value="16">制造业</option>
+          </select>        
+      </div>
+      <div>
+          <span class="add-user-item">具体地址</span>
+          <input type="text" class="add-user-form-area"/>
+      </div>
+    </div>
+    <div class="dl-foote add-user-footer">
+        <a href="javascript:;" class="btn btn-add-uer"></a>
+    </div>
+</div>
+<script src="static/lib/jquery-3.2.1.min.js"></script>
+<script src="static/js/common/jquery.dropselect.js"></script>
+<script src="static/lib/echarts.min.js"></script>
+<script>
+var main = {
+    init: function(){
+        main.chartInit();
+        main.uiBind();
+    },
+    uiBind: function(){
+
+    },
+    chartInit: function(){
+        echarts.init($('#bmchart-1')[0]).setOption({
+            textStyle: {
+                color: '#546a79',
+                fontSize: '12px'
+            },
+            grid: {
+                show: true,
+                left: 0,
+                right: 0,
+                bottom: '30px',
+                top: '30px',
+                borderWidth: 1,
+                borderColor: '#ffffff',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                data: ['30.05','31.05','01.06','02.06','03.06','04.06','05.06','06.06','07.06','08.06','09.06'],
+                boundaryGap: false,
+                splitLine: {
+                    show: false,
+                    interval: 'auto',
+                    lineStyle: {
+                        color: ['#f1f2f3']
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    show: false,
+                    lineStyle: {color: '#f1f2f3'}//609ee9
+                }
+            },
+            yAxis: {
+                type: 'value',
+                splitLine: {
+                    lineStyle: {color: ['#f1f2f3']}
+                },
+                axisLine: {
+                    lineStyle: {color: '#f1f2f3'}
+                }
+            },
+            series: [{
+                name: '峰值',
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
+                symbol: 'circle',
+                symbolSize: 6,
+                lineStyle: {
+                    normal: {color: '#c8e3f3', width:0}
+                },
+                areaStyle: {normal: {color: '#c8e3f3'}},
+                data: ['48', '55', '42', '50', '36', '48', '58', '43', '50', '46', '38'],
+                itemStyle: {
+                    normal: {color: '#2751a3'}
+                }
+            }, {
+                name: '峰值',
+                type: 'line',
+                smooth: true,
+                showSymbol: false,
+                symbol: 'circle',
+                symbolSize: 6,
+                data: ['58', '42', '56', '40', '55', '36', '32', '58', '45', '55', '58'],
+                areaStyle: {
+                    normal: {color: '#7aceeb'}
+                },
+                itemStyle: {
+                    normal: {color: '#0e327f'}
+                },
+                lineStyle: {
+                    normal: {color: '#7aceeb', width: 0}
+                }
+            }]
+        });
+    }
+};
+
+$(function(){
+    main.init();
+});
+</script>
+</body>
+</html>

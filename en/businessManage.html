@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>lkf-SmartCenter</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+<body>
+<header class="haeder clearfix">
+    <a href="index.html" class="haeder-h1"></a>
+    <ul class="header-nav">
+        <li><a href="supervisionCenter.html">Supervision Center</a></li>
+        <li><a href="bmchart.html">Merchant Management</a></li>
+        <li><a href="javascript:;">Power Management</a></li>
+        <li><a href="systemManage.html">Role Management</a></li>
+    </ul>
+    <div class="header-user">
+        <a href="javascript:;" class="ic-user">Dave</a>
+        <a href="javascript:;">Logout</a>
+    </div>
+</header>
+<div class="manage-title">
+  <ul id="manage-title" class="wrap manage-wrap clearfix">    
+      <li class="manage-item pull-left first ml-30"><span class="manage-item-content">Merchant's Information</span></li>
+      <li class="manage-item pull-left"><span class="manage-item-content">Promotional Events</span></li>    
+  </ul>
+</div>
+<section class="wrap manage-wrap">
+    <div class="manage-content pt-25 clearfix">
+        <select id="industry" class="mana-industry">
+            <option value="">Industrial Classification</option>
+            <option value="1">Finance</option>
+            <option value="1">Architecture</option>
+            <option value="1">Internet</option>
+            <option value="1">Education</option>
+        </select>
+        <select id="floor" class="mana-floor">
+            <option value="">Floor</option>
+            <option value="1">1</option>
+            <option value="1">2</option>
+            <option value="1">3</option>
+            <option value="1">4</option>
+            <option value="1">5</option>
+        </select>
+        <span class="mana-search-warpper vam"><input class="mana-search" type="text" name="" placeholder="Promotional Event Name/Merchant Name"></span>
+        <a id="mana-add-user-btn" class="mana-add-user-btn pull-right" href="javascript:;">Add Merchant</a>
+        <a id="mana-add-user-btn-1" class="mana-add-user-btn pull-right" href="javascript:;">Add Promotion</a>
+    </div>
+    <table id="busi-mana-user-table" class="busi-mana-table" style="display:none;">
+      <thead>
+        <th class="user-column-1" colspan="2">Merchant Name</th>
+        <th class="user-column-2">Address</th>
+        <th class="user-column-3">Contact</th>
+        <th class="user-column-4">Principal</th>
+        <th class="user-column-5">Insert Time</th>
+        <th class="user-column-6">Update TIme</th>
+        <th class="user-column-7">Manage</th>
+        <th class="user-column-8">Delete</th>
+      </thead>
+      <tbody>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>          
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>        
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>           
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>           
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>     
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>           
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>         
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>          
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>            
+        </tr>
+        <tr class="user-row">
+          <td class="user-column-1"><i class="ic-select"></i></td>
+          <td class="user-column-2">Cerruti Exclusive Shop</td>
+          <td class="user-column-3">13F-B No.13026</td>
+          <td class="user-column-4">003-3251648932</td>
+          <td class="user-column-5">Jack Ma</td>
+          <td class="user-column-6"> 2016-03-03  8:30</td>
+          <td class="user-column-7">2017-03-03  10:30</td>
+          <td class="user-column-8"><i class="ic-manage"></i></td>
+          <td class="user-column-9"><i class="ic-delete"></i></td>           
+        </tr>
+        <tr class="user-row-select-all"><td class="user-column-1"><i id="ic-select-all" class="ic-select-all ic-select mt-10"></i></td><td class="user-column-2"><a class="user-delete-btn mt-10 ml-10" href="javascript:;">Delete</a></td></tr>
+      </tbody>
+    </table>
+    <table id="busi-mana-activity-table" class="busi-mana-table" style="display:none;">
+      <thead>
+        <th class="activity-column-1">Product</th>
+        <th class="activity-column-2">Promotional Event Name</th>
+        <th class="activity-column-3">Promotional Event Content</th>
+        <th class="activity-column-4">Merchant</th>
+        <th class="activity-column-5">Event Time</th>
+        <th class="activity-column-6">Approve Status</th>
+        <th class="activity-column-7">Event Status</th>
+        <th class="activity-column-8">Operation</th>
+      </thead>
+      <tbody>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">5x Rewards Points</br></td>
+          <td class="activity-column-3">Merchant low-traffic push promotion.</td>
+          <td class="activity-column-4">Cerruti Exclusive Shop</td>
+          <td class="activity-column-5"> 29/04 20:00</br>~</br>29/04 22:00</td>
+          <td class="activity-column-6">Unapproved</td>
+          <td class="activity-column-7">Offline</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">Approve</li><li class="modify-item">Reject</li><li class="modify-item">Offline</li><li class="modify-item">Online</li><li class="modify-item">Delete</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">Merchant Flash Sales</br></td>
+          <td class="activity-column-3">20% off all drinks.</td>
+          <td class="activity-column-4">Cerruti Exclusive Shop</td>
+          <td class="activity-column-5"> 29/04 22:00</br>~</br>29/04 23:59</td>
+          <td class="activity-column-6">Approved</td>
+          <td class="activity-column-7">Online</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">Approve</li><li class="modify-item">Reject</li><li class="modify-item">Offline</li><li class="modify-item">Online</li><li class="modify-item">Delete</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">Free Parking</br>Photo Event</td>
+          <td class="activity-column-3">Sector 3A low-traffic push promotion</td>
+          <td class="activity-column-4">Sector 3A</td>
+          <td class="activity-column-5"> 29/03 00:00</br>~</br>09/04 23:59</td>
+          <td class="activity-column-6">Unapproved</td>
+          <td class="activity-column-7">Online</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">Approve</li><li class="modify-item">Reject</li><li class="modify-item">Offline</li><li class="modify-item">Online</li><li class="modify-item">Delete</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">Points Turntable</br>Gifts Redemption</td>
+          <td class="activity-column-3">Older industries crunch data with just as much enthusiasm as new ones these days.</td>
+          <td class="activity-column-4">Cerruti Exclusive Shop</td>
+          <td class="activity-column-5"> 29/03 00:00</br>~</br>09/04 23:59</td>
+          <td class="activity-column-6">Unapproved</td>
+          <td class="activity-column-7">Online</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">Approve</li><li class="modify-item">Reject</li><li class="modify-item">Offline</li><li class="modify-item">Online</li><li class="modify-item">Delete</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr class="activity-row">
+          <td class="activity-column-1"><img src="static/images/supervision-1.jpg"></td>
+          <td class="activity-column-2">Points Turntable</br>Gifts Redemption</td>
+          <td class="activity-column-3">Older industries crunch data with just as much enthusiasm as new ones these days.</td>
+          <td class="activity-column-4">Cerruti Exclusive Shop</td>
+          <td class="activity-column-5"> 29/03 00:00</br>~</br>09/04 23:59</td>
+          <td class="activity-column-6">Unapproved</td>
+          <td class="activity-column-7">Online</td>
+          <td class="activity-column-8"><i class="ic-modify"></i><ul class="modify-list"><li class="modify-item">Approve</li><li class="modify-item">Reject</li><li class="modify-item">Offline</li><li class="modify-item">Online</li><li class="modify-item">Delete</li></ul></td>          
+        </tr>
+        <tr class="empty-row odd"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <div class="page"></div>
+</section>
+<!--dialog-->
+<div class="mask" id="dl-mask"></div>
+<div class="dialog dl-event" id="dl-dl">
+    <h3 class="dl-title"><i class="dl-ic ic-add-user"></i>Add Merchant</h3>
+    <a class="dl-close" href="javascript:main.dialogClose($('#dl-dl'));"></a>
+    <div class="dl-content au-content">
+      <div class="mb-20">
+          <span class="add-user-item">Merchant Name</span>
+          <input class="add-user-inp mr-15" type="text" name="">
+          <span class="add-user-item">Cantact</span>
+          <input class="add-user-inp mr-15" type="text" name="">       
+      </div>
+      <div class="mb-20">
+          <span class="add-user-item">Principal</span>
+          <input class="add-user-inp mr-15" type="text" name="">
+          <span class="add-user-item">Industry Category</span>
+          <select id="sel-industry" class="mr-15 sel-industry">
+              <option value="0">Costume</option>
+              <option value="12">Finance</option>
+              <option value="14">Internet</option>
+              <option value="16">Manufacturing</option>
+          </select>        
+      </div>
+      <div>
+          <span class="add-user-item">Address</span>
+          <input type="text" class="add-user-form-area"/>
+      </div>
+    </div>
+    <div class="dl-foote add-user-footer">
+        <a href="javascript:main.dialogClose($('#dl-dl'));" class="btn btn-add-uer"></a>
+    </div>
+</div>
+
+<div class="dialog dl-event" id="dl-dl-1">
+    <h3 class="dl-title"><i class="dl-ic ic-add-user"></i>Add Promotion</h3>
+    <a class="dl-close" href="javascript:main.dialogClose($('#dl-dl-1'));"></a>
+    <div class="dl-content au-content">
+      <div class="mb-20">
+          <span class="add-user-item">Event Name</span>
+          <input class="add-user-inp mr-15" type="text" name="">
+          <span class="add-user-item">Merchant Info</span>
+          <select id="sel-industry-1" class="mr-15 sel-industry">
+              <option value="0">Cerruti Exclusive1</option>
+              <option value="12">Cerruti Exclusive2</option>
+              <option value="14">Cerruti Exclusive3</option>
+              <option value="16">Cerruti Exclusive4</option>
+          </select>   
+      </div>
+       <div class="mb-20">
+          <span class="add-user-item">Start Time</span>
+          <input class="add-user-inp mr-15" type="text" name="">
+          <span class="add-user-item">End Time</span>
+          <input class="add-user-inp mr-15" type="text" name="">       
+      </div>
+      <div>
+          <span class="add-user-item">Event Content</span>
+          <input type="text" class="add-user-form-area"/>
+      </div>
+    </div>
+    <div class="dl-foote add-user-footer">
+        <a href="javascript:main.dialogClose($('#dl-dl'));" class="btn btn-add-uer"></a>
+    </div>
+</div>
+
+<script src="static/lib/jquery-3.2.1.min.js"></script>
+<script src="static/js/common/jquery.dropselect.js"></script>
+<script>
+var main = {
+    init: function(){
+        if(location.hash){
+            main.tabs(1, $("li.manage-item").eq(1));
+        }else{
+            main.tabs(0, $("li.manage-item").eq(0));
+        }
+        main.uiBind();
+    },
+    dialog: function($t){
+        $('#dl-mask').show();
+        $t.show();
+    },
+    dialogClose: function($t){
+        $('#dl-mask').hide();
+        $t.hide();
+    },
+    uiBind: function(){
+        $('#industry, #floor').dropselect({
+          width : 125,
+          panelwidth : 188
+        }); 
+        $("#busi-mana-activity-table .ic-modify").click(function(){
+          $(this).next(".modify-list").show();
+        });
+        $("#busi-mana-activity-table .modify-list").click(function(){
+          $(this).hide();
+        });
+        var $tables = $(".busi-mana-table")
+        $("li.manage-item").each(function(index){
+          $(this).click(function(){
+              main.tabs(index, $(this));
+          })
+        });
+        $(".ic-select").not(".ic-select-all").click(function(){
+            $(this).toggleClass("active");
+        });
+        $("#ic-select-all").click(function(){
+            main.isSelectAll($(this),$("#busi-mana-user-table .ic-select"))
+        });
+        $("#mana-add-user-btn").click(function(){
+            main.dialog($('#dl-dl'));
+        });
+          $("#mana-add-user-btn-1").click(function(){
+            main.dialog($('#dl-dl-1'));
+        });
+        $('#sel-industry').dropselect({
+          panelwidth : 160, width: 123
+        });
+        $('#sel-industry-1').dropselect({
+          panelwidth : 160, width: 123
+        });
+    },
+    tabs: function(index, $t){
+        if(index === 0){
+            $("#mana-add-user-btn").show();
+            $("#mana-add-user-btn-1").hide();
+           
+        }else{
+            $("#mana-add-user-btn").hide();
+             $("#mana-add-user-btn-1").show();
+        }
+        $t.addClass("active").siblings().removeClass("active");
+        $(".busi-mana-table").hide().eq(index).show();
+    },
+    isSelectAll : function($obj , $isSelect){
+        $obj.toggleClass("active");
+        if($obj.hasClass("active")){
+          $isSelect.addClass("active");
+        }else{
+          $isSelect.removeClass("active");
+        }   
+    }
+};
+
+$(function(){
+    main.init();
+});
+</script>
+</body>
+</html>
