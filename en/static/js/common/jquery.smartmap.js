@@ -135,8 +135,8 @@
 					max: max,
 					data: data
 				};
-			self.heatmap.setData(dt);
-			self.lthtmap.setData(dt);
+			self.heatmap.removeData().setData(dt);
+			self.lthtmap.removeData().setData(dt);
 		},
 		setMapLevel: function(lv){
 			var self = this, panel = self.panel, lvar = self.default.lvar, mw = self.default.width, mh = self.default.height;

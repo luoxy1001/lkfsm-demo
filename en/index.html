@@ -456,10 +456,8 @@ var main = {
                     //main.dialog($('#dl-sxt'));
                 });
             });
-
-            setInterval(function(){
-                $mp.sethtdata(main.sethtdata());
-            }, 50);
+            main.count = 0;
+            main.sethtdata($mp);
         }, 10);
         main.chartsInit();
         main.uiBind();
@@ -474,14 +472,22 @@ var main = {
         });
         return htar;
     },
-    sethtdata: function(){
+    sethtdata: function($mp){
         var htar = [];
+        if(main.count > 6000) location.reload();
         $.each(main.dfhdt, function(i, o){
-            var rd = Math.random(), m = rd > .5 ? 1 : -1;
+            var rd = Math.random(), m = rd >= .5 ? 1 : -1;
             htar.push({x: o.x + m, y: o.y + m, value: o.value});
         });
         main.dfhdt = htar;
-        return htar;
+        //return htar;
+        $mp.sethtdata(main.dfhdt);
+        main.count++;
+        clearTimeout(main.httmr);
+        main.httmr = setTimeout(function(){
+            htar = null;
+            main.sethtdata($mp);
+        }, 100);
     },
     chartsInit: function(){
         // 初始化echarts实例
