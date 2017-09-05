@@ -478,8 +478,8 @@ var main = {
         var htar = [];
         if(main.count > 6000) location.reload();
         $.each(main.dfhdt, function(i, o){
-            var rd = Math.random(), m = rd >= .5 ? 1 : -1;
-            htar.push({x: o.x + m, y: o.y + m, value: o.value});
+            var mx = Math.floor(Math.random()*3-1), my = Math.floor(Math.random()*3-1);
+            htar.push({x: o.x + mx, y: o.y + my, value: o.value});
         });
         main.dfhdt = htar;
         //return htar;
